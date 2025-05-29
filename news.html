@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhyudayam - Political Party</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body  style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333;">
+ <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+  <!-- Header -->
+    <!-- Header with Logo, Name, and Social Media Icons -->
+  <header style="background: #004080; color: #fff; padding: 20px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <img src="https://img.mensxp.com/media/content/2023/Mar/2---credit---Sri-Venkateswar-Creations_64212be2c7476.jpeg?w=780&h=337&cc=1" alt="Abhyudayam Logo" style="height: 80px;">
+      <h1 style="margin: 0;">Abhyudayam</h1>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div id="menu-btn" onclick="toggleMenu()" style="display: none; font-size: 28px; cursor: pointer;">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Navigation Links -->
+    <div id="nav-links" style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+      <a href="Abhyudhayam.html" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">HOME</a>
+      <a href="manifesto.html" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">Manifesto</a>
+      <a href="about.html" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">ABOUT</a>
+      <a href="contact.html" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">CONTACT US</a>
+      <a href="join.html" style="background: #ffcc00; color: #00264d; text-decoration: none; padding: 10px 18px; font-weight: bold; border-radius: 5px; font-size: 16px;">Join Abhyudhayam</a>
+      <a href="donate.html" style="background: #ff5733; color: #fff; text-decoration: none; padding: 10px 18px; font-weight: bold; border-radius: 5px; font-size: 16px;">Make a Donation</a>
+      <div style="display: flex; gap: 15px; margin-top: 10px;">
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-facebook"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-linkedin"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-youtube"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-telegram"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Responsive Script -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const navLinks = document.getElementById("nav-links");
+
+    function toggleMenu() {
+      if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none";
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      } else {
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.width = "100%";
+        menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+      }
+    }
+
+    // Handle resizing
+    function checkWindowSize() {
+      if (window.innerWidth > 768) {
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "row";
+        menuBtn.style.display = "none";
+      } else {
+        navLinks.style.display = "none";
+        menuBtn.style.display = "block";
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    }
+
+    window.onload = checkWindowSize;
+    window.onresize = checkWindowSize;
+  </script>
+    
+    <!-- Second Navbar (Former Side Menu) -->
+    <nav style="background: #003366; padding: 10px; text-align: center;">
+        <a href="news.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">News</a>
+        <a href="events.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Events</a>
+        <a href="meetings.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Meetings</a>
+        <a href="conferences.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Conferences</a>
+        <a href="media.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Media</a>
+        <a href="javascript:void(0);" onclick="openPollForm()" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Poll Survey</a>
+        <a href="javascript:void(0);" onclick="openLeadersForm()" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Political Leaders</a>
+        <a href="javascript:void(0);" onclick="document.getElementById('volunteerOverlay').style.display='block';" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Volunteers</a>
+    </nav>
+
+    <!-- overlays -->
+        <!-- Poll Survey Form Overlay -->
+            <div id="pollOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 450px; background: #fff; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);">
+                    <h2 style="margin-top: 0; color: #00264d;">Poll Survey</h2>
+                    <p style="margin-bottom: 15px; color: #555;">Rate different aspects of the party and share your feedback.</p>
+                    
+                    <!-- Ratings Section -->
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Manifesto:</label>
+                        <div onclick="setRating(this, 'manifesto')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="manifesto-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Guarantees:</label>
+                        <div onclick="setRating(this, 'guarantees')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="guarantees-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Work of Party:</label>
+                        <div onclick="setRating(this, 'work')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="work-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Experience:</label>
+                        <div onclick="setRating(this, 'experience')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="experience-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Service:</label>
+                        <div onclick="setRating(this, 'service')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="service-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <!-- Feedback Input -->
+                    <textarea placeholder="Your Feedback / Corrections" style="width: 90%; padding: 10px; height: 80px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+                    
+                    <button style="width: 95%; padding: 12px; background: linear-gradient(90deg, #00264d, #003366); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;" 
+                        onmouseover="this.style.background='#001a33'" 
+                        onmouseout="this.style.background='#00264d'">Submit</button>
+
+                    <button onclick="closePollForm()" style="width: 95%; margin-top: 10px; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;"
+                        onmouseover="this.style.background='#c9302c'" 
+                        onmouseout="this.style.background='#dc3545'">Close</button>
+                </div>
+            </div>
+
+            <!-- JavaScript to Handle Overlay & Star Ratings -->
+            <script>
+                function openPollForm() {
+                    document.getElementById("pollOverlay").style.display = "block";
+                }
+
+                function closePollForm() {
+                    document.getElementById("pollOverlay").style.display = "none";
+                }
+
+                function setRating(element, category) {
+                    let stars = "★★★★★";
+                    let rating = event.clientX - element.getBoundingClientRect().left;
+                    let selectedStars = Math.ceil((rating / element.offsetWidth) * 5); // Calculate star rating
+
+                    if (selectedStars > 5) selectedStars = 5; // Max 5 stars
+                    if (selectedStars < 0) selectedStars = 0; // Min 0 stars
+
+                    document.getElementById(category + "-rating").innerText = selectedStars;
+                    element.innerHTML = stars.substring(0, selectedStars) + "☆☆☆☆☆".substring(0, 5 - selectedStars); // Update stars
+                }
+            </script>
+
+            <!-- Political Leaders Form Overlay -->
+            <div id="leadersOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999; overflow-y: auto;">
+                <div style="position: relative; top: 50px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 450px; background: #fff; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); max-height: 90vh; overflow-y: auto;">
+                    <h2 style="margin-top: 0; color: #00264d;">Election Participation Form</h2>
+                    <p style="margin-bottom: 15px; color: #555;">Fill in your details and select your category and location.</p>
+                    
+                    <!-- Personal Information Fields -->
+                    <label style="font-weight: bold; display: block; text-align: left;">Full Name:</label>
+                    <input type="text" id="fullName" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" placeholder="Enter your full name">
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Age:</label>
+                    <input type="number" id="age" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" placeholder="Enter your age">
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Gender:</label>
+                    <select id="gender" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Mobile Number:</label>
+                    <input type="tel" id="mobile" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" placeholder="Enter your mobile number">
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Email:</label>
+                    <input type="email" id="email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" placeholder="Enter your email">
+                    
+                    <!-- Position Selection -->
+                    <label style="font-weight: bold; display: block; text-align: left;">Position:</label>
+                    <select id="position" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Position --</option>
+                        <option value="Sarpanch">Village Sarpanch</option>
+                        <option value="MPTC">Mandal MPTC</option>
+                        <option value="ZPTC">Mandal ZPTC</option>
+                        <option value="MLA">Constituency MLA</option>
+                        <option value="MP">Member of Parliament (MP)</option>
+                    </select>
+                    
+                    <!-- Location Selection -->
+                    <label style="font-weight: bold; display: block; text-align: left;">State:</label>
+                    <select id="state" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="Telangana">Telangana</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">District:</label>
+                    <select id="district" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select District --</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Warangal">Warangal</option>
+                        <option value="Karimnagar">Karimnagar</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Constituency:</label>
+                    <select id="constituency" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Constituency --</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Mandal:</label>
+                    <select id="mandal" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Mandal --</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Village:</label>
+                    <select id="village" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Village --</option>
+                    </select>
+                    
+                    <!-- Submit Button -->
+                    <button style="width: 95%; padding: 12px; background: linear-gradient(90deg, #00264d, #003366); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;" 
+                        onmouseover="this.style.background='#001a33'" 
+                        onmouseout="this.style.background='#00264d'">Submit</button>
+                    
+                    <button onclick="closeLeadersForm()" style="width: 95%; margin-top: 10px; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;"
+                        onmouseover="this.style.background='#c9302c'" 
+                        onmouseout="this.style.background='#dc3545'">Close</button>
+                </div>
+            </div>
+
+            <!-- JavaScript for Overlay and Dropdowns -->
+            <script>
+                function openLeadersForm() {
+                    document.getElementById("leadersOverlay").style.display = "block";
+                }
+
+                function closeLeadersForm() {
+                    document.getElementById("leadersOverlay").style.display = "none";
+                }
+
+                // Telangana Districts Data
+                const districtsData = {
+                "Adilabad": ["Adilabad", "Boath", "Nirmal", "Mudhole", "Khanapur"],
+                "Bhadradri Kothagudem": ["Bhadrachalam", "Pinapaka", "Yellandu", "Kothagudem", "Aswaraopeta"],
+                "Hyderabad": ["Nampally", "Malakpet", "Amberpet", "Khairatabad", "Jubilee Hills", "Sanathnagar", "Secunderabad", "Musheerabad", "Karwan", "Goshamahal", "Charminar", "Chandrayangutta", "Yakutpura", "Bahadurpura"],
+                "Jagtial": ["Dharmapuri", "Jagtial", "Korutla"],
+                "Jangaon": ["Jangaon", "Ghanpur (Station)"],
+                "Jayashankar Bhupalpally": ["Bhupalpally", "Manthani"],
+                "Jogulamba Gadwal": ["Gadwal", "Alampur"],
+                "Kamareddy": ["Kamareddy", "Yellareddy", "Banswada"],
+                "Karimnagar": ["Karimnagar", "Choppadandi", "Manakondur", "Husnabad"],
+                "Khammam": ["Khammam", "Wyra", "Palair", "Madhira", "Sathupalli"],
+                "Kumuram Bheem Asifabad": ["Asifabad", "Sirpur"],
+                "Mahabubabad": ["Mahabubabad", "Dornakal", "Thorrur"],
+                "Mahabubnagar": ["Mahabubnagar", "Devarakadra", "Makthal", "Narayanpet", "Kodangal"],
+                "Mancherial": ["Mancherial", "Bellampalli", "Chennur"],
+                "Medak": ["Medak", "Narsapur", "Patancheru"],
+                "Medchal-Malkajgiri": ["Malkajgiri", "Medchal", "Quthbullapur", "Kukatpally", "Uppal", "Ibrahimpatnam"],
+                "Mulugu": ["Mulugu"],
+                "Nagarkurnool": ["Nagarkurnool", "Achampet", "Kalwakurthy", "Jadcherla", "Shadnagar"],
+                "Nalgonda": ["Nalgonda", "Munugode", "Devarakonda", "Nagarjuna Sagar", "Miryalaguda"],
+                "Narayanpet": ["Narayanpet"],
+                "Nirmal": ["Nirmal", "Mudhole", "Boath"],
+                "Nizamabad": ["Nizamabad Urban", "Nizamabad Rural", "Balkonda", "Bodhan", "Armoor"],
+                "Peddapalli": ["Peddapalli", "Manthani", "Ramagundam"],
+                "Rajanna Sircilla": ["Sircilla", "Vemulawada"],
+                "Rangareddy": ["Ibrahimpatnam", "Maheshwaram", "Rajendranagar", "Serilingampally", "Chevella", "Parigi", "Tandur"],
+                "Sangareddy": ["Sangareddy", "Andole", "Zahirabad"],
+                "Siddipet": ["Siddipet", "Gajwel", "Dubbak"],
+                "Suryapet": ["Suryapet", "Kodad", "Huzurnagar"],
+                "Vikarabad": ["Vikarabad", "Tandur", "Parigi"],
+                "Wanaparthy": ["Wanaparthy", "Gadwal"],
+                "Warangal": ["Warangal West", "Warangal East", "Bhupalpally", "Parkal"],
+                "Yadadri Bhuvanagiri": ["Bhongir", "Aler", "Tungaturthi"]
+            };
+
+                // Telangana mandals
+                const mandalsData = {
+                "Adilabad": ["Adilabad", "Talamadugu", "Bela", "Narnoor"],
+                "Boath": ["Boath", "Neradigonda", "Indervelly"],
+                "Nirmal": ["Nirmal", "Sarangapur", "Laxmanchanda"],
+                "Mudhole": ["Mudhole", "Bhainsa", "Kubeer"],
+                "Khanapur": ["Khanapur", "Kadam", "Utnoor"],
+                "Bhadrachalam": ["Bhadrachalam", "Dummugudem", "Cherla"],
+                "Pinapaka": ["Pinapaka", "Manuguru", "Aswapuram"],
+                "Yellandu": ["Yellandu", "Gundala", "Bayyaram"],
+                "Kothagudem": ["Kothagudem", "Laxmidevipalli", "Tekulapalli"],
+                "Aswaraopeta": ["Aswaraopeta", "Mulkalapalli", "Dammapeta"],
+                "Nampally": ["Nampally", "Mehdipatnam", "Red Hills", "Abids"],
+                "Malakpet": ["Malakpet", "Chanchalguda", "Saidabad"],
+                "Khairatabad": ["Khairatabad", "Somajiguda", "Punjagutta"],
+                "Jubilee Hills": ["Jubilee Hills", "Banjara Hills", "Film Nagar"],
+                "Sanathnagar": ["Sanathnagar", "Ameerpet", "Begumpet"],
+                "Secunderabad": ["Secunderabad", "Tarnaka", "Trimulgherry"],
+                "Musheerabad": ["Musheerabad", "RTC X Roads", "Kavadiguda"],
+                "Karwan": ["Karwan", "Tappachabutra", "Asif Nagar"],
+                "Charminar": ["Charminar", "Shalibanda", "Hussainialam"],
+                "Chandrayangutta": ["Chandrayangutta", "Barkas", "Falaknuma"],
+                "Yakutpura": ["Yakutpura", "Rein Bazaar", "Dabeerpura"],
+                "Bahadurpura": ["Bahadurpura", "Kalapathar", "Shamsheergunj"],
+                "Jagitial": ["Jagitial", "Mallial", "Beerpur"],
+                "Dharmapuri": ["Dharmapuri", "Buggaram", "Gollapalli"],
+                "Korutla": ["Korutla", "Metpally", "Mallapur"],
+                "Jangaon": ["Jangaon", "Lingalaghanpur", "Gundala"],
+                "Bhupalpally": ["Bhupalpally", "Kataram", "Mahadevpur"],
+                "Gadwal": ["Gadwal", "Itikyala", "Undavelly"],
+                "Kamareddy": ["Kamareddy", "Banswada", "Yellareddy"],
+                "Karimnagar": ["Karimnagar", "Veenavanka", "Chigurumamidi"],
+                "Khammam": ["Khammam", "Raghunathapalem", "Chinthakani"],
+                "Mahabubabad": ["Mahabubabad", "Dornakal", "Nellikuduru"],
+                "Mahabubnagar": ["Mahabubnagar", "Jadcherla", "Hanwada"],
+                "Medak": ["Medak", "Ramayampet", "Alladurg"],
+                "Medchal": ["Medchal", "Shamirpet", "Keesara"],
+                "Nagarkurnool": ["Nagarkurnool", "Achampet", "Telkapally"],
+                "Nalgonda": ["Nalgonda", "Kanagal", "Thipparthi"],
+                "Nizamabad": ["Nizamabad", "Dichpally", "Balkonda"],
+                "Peddapalli": ["Peddapalli", "Manthani", "Odela"],
+                "Siddipet": ["Siddipet", "Gajwel", "Dubbak"],
+                "Suryapet": ["Suryapet", "Kodad", "Huzurnagar"],
+                "Vikarabad": ["Vikarabad", "Tandur", "Parigi"],
+                "Wanaparthy": ["Wanaparthy", "Pebbair", "Kothakota"],
+                "Warangal West": ["Warangal West", "Kazipet", "Hanamkonda"],
+                "Warangal East": ["Warangal East", "Parkal", "Bhupalpally"],
+                "Bhongir": ["Bhongir", "Aler", "Tungaturthi"]
+            };
+
+                // Telangana Villages Data
+                const villagesData = {
+                    "Adilabad": ["Basar", "Jainad", "Talamadugu", "Madapur", "Gollaguda", "Laxmipur"],
+                    "Talamadugu": ["Tamsi", "Mukhra", "Bela", "Tamsi", "Indervelly", "Gunjala"],
+                    "Bela": ["Bela", "Mukhra", "Utnoor", "Neredigonda", "Dharur"],
+                    "Narnoor": ["Narnoor", "Jainad", "Basar", "Indervelly", "Nizampur"],
+                    
+                    "Boath": ["Boath", "Neradigonda", "Gadiguda", "Bodhan", "Gadhcherla"],
+                    "Nirmal": ["Nirmal", "Sarangapur", "Laxmanchanda", "Khagaznagar", "Kaddam"],
+                    "Mudhole": ["Mudhole", "Bhainsa", "Kubeer", "Jinnaram", "Nagapur"],
+                    
+                    "Bhadrachalam": ["Bhadrachalam", "Yetapaka", "Dummugudem", "Kannepalli", "Chintoor"],
+                    "Manuguru": ["Manuguru", "Aswapuram", "Cherla", "Bhadrachalam", "Sironcha"],
+                    
+                    "Malakpet": ["Mallapur", "Nagole", "Dilsukhnagar", "Santoshnagar", "Malkajgiri"],
+                    "Chanchalguda": ["Azampura", "Noorkhan Bazar", "Santoshnagar", "Bhavani Nagar", "Chikkadpally"],
+                    "Trimulgherry": ["Bolarum", "Alwal", "Neredmet", "Malkajgiri", "Ameerpet"],
+                    "Tarnaka": ["Nacharam", "Habsiguda", "Moula Ali", "Mallapur", "Sainikpuri"],
+                    
+                    "Ibrahimpatnam": ["Manchal", "Yacharam", "Nandigama", "Nagole", "Maheshwaram"],
+                    "Maheshwaram": ["Kandukur", "Balapur", "Tukkuguda", "Shamshabad", "Shadnagar"],
+                    
+                    "Jagitial": ["Jagitial", "Dharmapuri", "Beerpur", "Laxmanchanda", "Jammikunta"],
+                    "Dharmapuri": ["Buggaram", "Gollapalli", "Velgatur", "Kondapur", "Koppur"],
+                    
+                    "Karimnagar": ["Karimnagar", "Chigurumamidi", "Veenavanka", "Huzurabad", "Thimmapur"],
+                    "Siddipet": ["Siddipet", "Gajwel", "Dubbak", "Sarpangadda", "Shamirpet"],
+                    
+                    "Kamareddy": ["Kamareddy", "Banswada", "Yellareddy", "Bodhan", "Sadasivpet"],
+                    "Nizamabad": ["Nizamabad", "Dichpally", "Balkonda", "Navipet", "Samsabad"],
+                    
+                    "Medak": ["Medak", "Ramayampet", "Alladurg", "Malkapur", "Shankarampet"],
+                    "Vikarabad": ["Vikarabad", "Tandur", "Parigi", "Peddemul", "Sultanpur"],
+                    
+                    "Wanaparthy": ["Wanaparthy", "Pebbair", "Kothakota", "Adivi", "Chilkur"],
+                    "Mahabubnagar": ["Mahabubnagar", "Jadcherla", "Hanwada", "Nagarkurnool", "Peddakothapally"],
+                    
+                    "Warangal": ["Hanamkonda", "Kazipet", "Parkal", "Nekonda", "Khila Warangal"],
+                    "Bhongir": ["Bhongir", "Aler", "Tungaturthi", "Malkapur", "Tondapalli"],
+                    
+                    "Khammam": ["Khammam", "Raghunathapalem", "Chinthakani", "Mudigonda", "Sathupalli"],
+                    "Nalgonda": ["Nalgonda", "Kanagal", "Thipparthi", "Peddapalli", "Choutuppal"],
+                    
+                    "Nagarkurnool": ["Nagarkurnool", "Achampet", "Telkapally", "Shadnagar", "Gudur"],
+                    "Suryapet": ["Suryapet", "Kodad", "Huzurnagar", "Chilkur", "Miryalaguda"],
+                    
+                    "Peddapalli": ["Peddapalli", "Manthani", "Odela", "Kumram Bheem", "Kamanpur"],
+                    "Jangaon": ["Jangaon", "Lingalaghanpur", "Gundala", "Zaffarabad", "Rajanna Sircilla"]
+                };
+
+
+                function populateDistricts() {
+                    let districtSelect = document.getElementById("district");
+                    districtSelect.innerHTML = '<option value="">-- Select District --</option>';
+                    for (let district in districtsData) {
+                        districtSelect.innerHTML += `<option value="${district}">${district}</option>`;
+                    }
+                }
+
+                function populateConstituencies() {
+                    let district = document.getElementById("district").value;
+                    let constituencySelect = document.getElementById("constituency");
+                    constituencySelect.innerHTML = '<option value="">-- Select Constituency --</option>';
+                    if (districtsData[district]) {
+                        districtsData[district].forEach(c => {
+                            constituencySelect.innerHTML += `<option value="${c}">${c}</option>`;
+                        });
+                    }
+                }
+
+                function populateVillages() {
+                    let mandal = document.getElementById("mandal").value;
+                    let villageSelect = document.getElementById("village");
+                    villageSelect.innerHTML = '<option value="">-- Select Village --</option>';
+                    if (villagesData[mandal]) {
+                        villagesData[mandal].forEach(v => {
+                            villageSelect.innerHTML += `<option value="${v}">${v}</option>`;
+                        });
+                    }
+                }
+            </script>
+
+            <!-- Volunteers Overlay Form -->
+            <div id="volunteerOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 9999; overflow-y: auto;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 420px; background: white; padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); max-height: 90vh; overflow-y: auto;">
+                    <h2 style="margin-top: 0; color: #00264d; font-size: 24px;">Volunteer Registration</h2>
+                    <p style="margin-bottom: 20px; color: #555; font-size: 14px;">Register as a volunteer and support the cause.</p>
+            
+                    <input type="text" placeholder="Full Name" style="width: 92%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    <input type="text" placeholder="Address" style="width: 92%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    <input type="text" placeholder="Zip Code" style="width: 92%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+            
+                    <select style="width: 97%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                        <option value="">Select Study Level</option>
+                        <option value="NA">NA</option>
+                        <option value="10th">10th</option>
+                        <option value="Inter/Diploma">Inter/Diploma</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="Post Graduation">Post Graduation</option>
+                    </select>
+            
+                    <select style="width: 97%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                        <option value="">Select Profession</option>
+                        <option value="Business">Business</option>
+                        <option value="Private Employee">Private Employee</option>
+                        <option value="Government Employee">Government Employee</option>
+                        <option value="Farmer">Farmer</option>
+                    </select>
+            
+                    <input type="text" placeholder="Boot Level Committee" style="width: 92%; padding: 12px; margin-top: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    <input type="text" placeholder="Referral ID" style="width: 92%; padding: 12px; margin-top: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    
+                    <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px;">
+                        <input type="text" id="mobileNumber" placeholder="Mobile Number" maxlength="10" style="width: 60%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                        <button onclick="sendOTP()" style="width: 35%; padding: 12px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;">Send OTP</button>
+                    </div>
+            
+                    <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 12px;">
+                        <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6" disabled style="width: 60%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                        <button onclick="verifyOTP()" id="verifyOTPBtn" disabled style="width: 35%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;">Verify OTP</button>
+                    </div>
+            
+                    <input type="email" placeholder="Email" style="width: 92%; padding: 12px; margin-top: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    
+                    <button style="width: 97%; padding: 12px; background: #00264d; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; margin-top: 12px; transition: 0.3s;" onmouseover="this.style.background='#001a33'" onmouseout="this.style.background='#00264d'">Submit</button>
+                    <button onclick="closeVolunteerForm()" style="width: 97%; margin-top: 12px; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;" onmouseover="this.style.background='#c9302c'" onmouseout="this.style.background='#dc3545'">Close</button>
+                </div>
+            </div>
+            
+            
+            <!-- JavaScript for OTP Validation -->
+            <script>
+                function sendOTP() {
+                    let mobile = document.getElementById("mobileNumber").value;
+                    if (mobile.length === 10 && !isNaN(mobile)) {
+                        alert("OTP Sent to " + mobile);
+                        document.getElementById("otpInput").disabled = false;
+                        document.getElementById("verifyOTPBtn").disabled = false;
+                    } else {
+                        alert("Enter a valid 10-digit mobile number.");
+                    }
+                }
+
+                function verifyOTP() {
+                    let otp = document.getElementById("otpInput").value;
+                    if (otp.length === 6 && !isNaN(otp)) {
+                        alert("OTP Verified Successfully!");
+                    } else {
+                        alert("Invalid OTP. Try Again.");
+                    }
+                }
+
+                function closeVolunteerForm() {
+                    document.getElementById("volunteerOverlay").style.display = "none";
+                }
+            </script>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+    <section style="display: flex; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1100px; margin: 0 auto; padding: 30px 20px; background: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    
+        <!-- Main Content -->
+        <div style="flex: 2; padding-right: 30px;">
+            <p style="text-transform: uppercase; font-size: 14px; color: #999; margin-bottom: 8px;">Politics & Governance | May 28, 2025</p>
+            <h2 style="font-size: 26px; color: #2c3e50; margin-bottom: 15px;">How Do Voters in Andhra Pradesh View Major Political Parties?</h2>
+            <p style="font-size: 16px; color: #444; line-height: 1.5; margin-bottom: 20px;">A recent survey shows varying levels of support and trust in major parties like TDP, YSRCP, and Janasena across Andhra Pradesh. Issues such as development, corruption, and leadership play a key role in shaping voter perception.</p>
+            
+            <!-- Chart-like Bars -->
+            <div style="margin-top: 20px;">
+            <div style="margin-bottom: 12px;">
+                <strong style="display: inline-block; width: 240px;">TDP (Telugu Desam Party)</strong>
+                <div style="background: #ccc; width: 100%; height: 16px; border-radius: 4px; overflow: hidden;">
+                <div style="background: #f39c12; width: 65%; height: 100%; float: left;"></div>
+                <div style="background: #f8c471; width: 20%; height: 100%; float: left;"></div>
+                </div>
+                <span style="font-size: 14px; color: #555;">85% NET</span>
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <strong style="display: inline-block; width: 240px;">YSRCP</strong>
+                <div style="background: #ccc; width: 100%; height: 16px; border-radius: 4px; overflow: hidden;">
+                <div style="background: #2980b9; width: 50%; height: 100%; float: left;"></div>
+                <div style="background: #85c1e9; width: 25%; height: 100%; float: left;"></div>
+                </div>
+                <span style="font-size: 14px; color: #555;">75% NET</span>
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <strong style="display: inline-block; width: 240px;">Janasena</strong>
+                <div style="background: #ccc; width: 100%; height: 16px; border-radius: 4px; overflow: hidden;">
+                <div style="background: #c0392b; width: 40%; height: 100%; float: left;"></div>
+                <div style="background: #e74c3c; width: 30%; height: 100%; float: left;"></div>
+                </div>
+                <span style="font-size: 14px; color: #555;">70% NET</span>
+            </div>
+
+            <div style="margin-bottom: 12px;">
+                <strong style="display: inline-block; width: 240px;">BJP</strong>
+                <div style="background: #ccc; width: 100%; height: 16px; border-radius: 4px; overflow: hidden;">
+                <div style="background: #d35400; width: 25%; height: 100%; float: left;"></div>
+                <div style="background: #f5b041; width: 20%; height: 100%; float: left;"></div>
+                </div>
+                <span style="font-size: 14px; color: #555;">45% NET</span>
+            </div>
+            </div>
+        </div>
+
+        <!-- Side Articles -->
+        <div style="flex: 1; border-left: 1px solid #ddd; padding-left: 25px;">
+            <div style="margin-bottom: 25px;">
+            <p style="font-size: 12px; color: #aaa; margin-bottom: 4px;">REPORT | May 15, 2025</p>
+            <p style="font-size: 15px; font-weight: bold; color: #2c3e50;">TDP-Janasena Alliance Gains Momentum Ahead of State Elections</p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+            <p style="font-size: 12px; color: #aaa; margin-bottom: 4px;">REPORT | April 30, 2025</p>
+            <p style="font-size: 15px; font-weight: bold; color: #2c3e50;">YSRCP Focuses on Welfare Programs in Rural Campaigns</p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+            <p style="font-size: 12px; color: #aaa; margin-bottom: 4px;">REPORT | March 22, 2025</p>
+            <p style="font-size: 15px; font-weight: bold; color: #2c3e50;">Youth Support for Janasena Rising in Coastal Andhra</p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+            <p style="font-size: 12px; color: #aaa; margin-bottom: 4px;">REPORT | March 5, 2025</p>
+            <p style="font-size: 15px; font-weight: bold; color: #2c3e50;">BJP Plans to Strengthen Base in Rayalaseema Region</p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+            <p style="font-size: 12px; color: #aaa; margin-bottom: 4px;">REPORT | February 18, 2025</p>
+            <p style="font-size: 15px; font-weight: bold; color: #2c3e50;">Voters Demand More Focus on Employment from All Parties</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="width: 100%; max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; font-family: Arial, sans-serif;">
+
+        <!-- Main story -->
+        <div style="flex: 2; min-width: 300px; padding: 10px;">
+            <img src="images/political.png" alt="Main Political News" style="width: 100%; height: auto; border-radius: 8px;">
+            <h2 style="margin: 10px 0 5px; font-size: 24px; color: #333;">Cash-for-Vote Row: Andhra Politics Heats Up Ahead of Polls</h2>
+            <p style="color: #666;">Fresh allegations surface as TDP and YSRCP spar over cash-for-vote claims. The EC calls for urgent review.</p>
+
+            <!-- Additional story under main -->
+        <div style="margin-top: 20px;">
+            <img src="images/notice.png" alt="Election Notice" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+            <p style="font-size: 16px; color: #222; margin-top: 10px;">Election Commission issues notice to Andhra CM on poll code violation</p>
+        </div>
+        </div>
+
+        <!-- Side stories -->
+        <div style="flex: 1; min-width: 250px; padding: 10px;">
+            <img src="images/tdp.png" alt="Supporting News 1" style="width: 100%; height: auto; border-radius: 8px;">
+            <p style="font-size: 16px; color: #222; margin-top: 10px;">TDP manifesto released: promises free tablets and job creation plan</p>
+
+            <img src="https://img.etimg.com/thumb/width-1200,height-1200,imgsize-1814266,resizemode-75,msid-113524811/news/politics-and-nation/andhra-cm-chandrababu-naidu-using-god-for-political-gains-ysrcp-chief-jagan-mohan-reddy-on-laddu-row.jpg" alt="Supporting News 2" style="width: 100%; height: 180px; margin-top: 20px; border-radius: 8px;">
+            <p style="font-size: 16px; color: #222; margin-top: 10px;">YSRCP calls for probe into voter data theft claims</p>
+        </div>
+
+        <!-- Mobile view preview (mock) -->
+        <div style="flex: 1; min-width: 250px; padding: 10px;">
+            <div style="border: 2px solid #000; border-radius: 30px; padding: 10px; max-width: 300px; margin: auto;">
+                <h3 style="text-align: center; color: #d40000;">APNews<span style="color: #000;">Shorts</span></h3>
+                <img src="images/article.png" alt="Mobile Article" style="width: 100%; height: auto; border-radius: 8px;">
+                <p style="font-weight: bold; font-size: 16px; margin-top: 10px;">Explained: Why Andhra voter turnout dropped significantly</p>
+                <p style="color: #888;">Updated 2 hours ago</p>
+            </div>
+
+            <!-- Additional story under mobile preview -->
+            <div style="margin-top: 20px;">
+                <img src="images/janasena.png" alt="Jana Sena Campaign" style="width: 100%; height:auto; border-radius: 8px;">
+                <p style="font-size: 16px; color: #222; margin-top: 10px;">Jana Sena's Pawan Kalyan intensifies campaign trail in coastal Andhra</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Main Content Container -->
+    <section style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+
+        <!-- Andhra Pradesh Section -->
+        <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #e74c3c; padding-bottom: 8px; display: inline-block;">Andhra Pradesh Leaders</h2>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 20px;">
+                <!-- TDP Leader -->
+                <div style="width: 32%; margin-bottom: 20px; background: #f9f9f9; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="height: 200px; background: url('images/babu.png') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h3 style="margin: 0 0 5px 0; color: #2980b9;"><code style="background: #e0f7fa; padding: 2px 5px; border-radius: 3px;">N. Chandrababu Naidu</code></h3>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Party:</strong> <code style="background: #f0f0f0; padding: 1px 4px;">TDP</code></p>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Position:</strong> Party President</p>
+                        <p style="margin: 5px 0; font-size: 14px;">Former Chief Minister of AP, known for IT development in Hyderabad.</p>
+                    </div>
+                </div>
+                
+                <!-- YSRCP Leader -->
+                <div style="width: 32%; margin-bottom: 20px; background: #f9f9f9; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="height: 200px; background: url('images/jagan.png') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h3 style="margin: 0 0 5px 0; color: #2980b9;"><code style="background: #e0f7fa; padding: 2px 5px; border-radius: 3px;">Y.S. Jagan Mohan Reddy</code></h3>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Party:</strong> <code style="background: #f0f0f0; padding: 1px 4px;">YSRCP</code></p>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Position:</strong> Chief Minister of AP</p>
+                        <p style="margin: 5px 0; font-size: 14px;">Known for welfare schemes and populist policies.</p>
+                    </div>
+                </div>
+                
+                <!-- JSP Leader -->
+                <div style="width: 32%; margin-bottom: 20px; background: #f9f9f9; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="height: 200px; background: url('images/pavan.png') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h3 style="margin: 0 0 5px 0; color: #2980b9;"><code style="background: #e0f7fa; padding: 2px 5px; border-radius: 3px;">Pawan Kalyan</code></h3>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Party:</strong> <code style="background: #f0f0f0; padding: 1px 4px;">Janasena</code></p>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Position:</strong> Party President</p>
+                        <p style="margin: 5px 0; font-size: 14px;">Actor-turned-politician, focuses on youth empowerment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Telangana Section -->
+        <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #e74c3c; padding-bottom: 8px; display: inline-block;">Telangana Leaders</h2>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 20px;">
+                <!-- TRS Leader -->
+                <div style="width: 32%; margin-bottom: 20px; background: #f9f9f9; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="height: 200px; background: url('images/brs.png') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h3 style="margin: 0 0 5px 0; color: #2980b9;"><code style="background: #e0f7fa; padding: 2px 5px; border-radius: 3px;">K. Chandrashekar Rao</code></h3>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Party:</strong> <code style="background: #f0f0f0; padding: 1px 4px;">BRS</code></p>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Position:</strong> Chief Minister of Telangana</p>
+                        <p style="margin: 5px 0; font-size: 14px;">Architect of Telangana statehood movement.</p>
+                    </div>
+                </div>
+                
+                <!-- Congress Leader -->
+                <div style="width: 32%; margin-bottom: 20px; background: #f9f9f9; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="height: 200px; background: url('images/tpcc.png') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h3 style="margin: 0 0 5px 0; color: #2980b9;"><code style="background: #e0f7fa; padding: 2px 5px; border-radius: 3px;">Revanth Reddy</code></h3>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Party:</strong> <code style="background: #f0f0f0; padding: 1px 4px;">Congress</code></p>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Position:</strong> TPCC President</p>
+                        <p style="margin: 5px 0; font-size: 14px;">Leading Congress revival efforts in Telangana.</p>
+                    </div>
+                </div>
+                
+                <!-- BJP Leader -->
+                <div style="width: 32%; margin-bottom: 20px; background: #f9f9f9; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="height: 200px; background: url('images/bjp.png') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h3 style="margin: 0 0 5px 0; color: #2980b9;"><code style="background: #e0f7fa; padding: 2px 5px; border-radius: 3px;">Bandi Sanjay</code></h3>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Party:</strong> <code style="background: #f0f0f0; padding: 1px 4px;">BJP</code></p>
+                        <p style="margin: 5px 0; font-size: 14px;"><strong>Position:</strong> State President</p>
+                        <p style="margin: 5px 0; font-size: 14px;">Leading BJP's expansion in Telangana.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Elections Section -->
+        <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #e74c3c; padding-bottom: 8px; display: inline-block;">Upcoming Elections</h2>
+            
+            <div style="margin-top: 20px;">
+                <div style="background: #e8f4f8; border-left: 4px solid #3498db; padding: 15px; margin-bottom: 15px; border-radius: 0 4px 4px 0;">
+                    <h3 style="margin: 0 0 10px 0; color: #2c3e50;"><code style="background: #d1e7dd; padding: 2px 5px;">Andhra Pradesh Assembly Elections 2025</code></h3>
+                    <p style="margin: 5px 0;"><strong>Expected Date:</strong> April-May 202</p>
+                    <p style="margin: 5px 0;"><strong>Key Parties:</strong> <code style="background: #f0f0f0; padding: 1px 4px;">YSRCP</code>, <code style="background: #f0f0f0; padding: 1px 4px;">TDP+JSP Alliance</code>, <code style="background: #f0f0f0; padding: 1px 4px;">BJP</code></p>
+                    <p style="margin: 5px 0;"><strong>Major Issues:</strong> Capital city dispute, welfare schemes, unemployment</p>
+                </div>
+                
+                <div style="background: #fff8e1; border-left: 4px solid #ffa000; padding: 15px; margin-bottom: 15px; border-radius: 0 4px 4px 0;">
+                    <h3 style="margin: 0 0 10px 0; color: #2c3e50;"><code style="background: #ffe0b2; padding: 2px 5px;">Telangana Assembly Elections 2025</code></h3>
+                    <p style="margin: 5px 0;"><strong>Expected Date:</strong> November-December 2023</p>
+                    <p style="margin: 5px 0;"><strong>Key Parties:</strong> <code style="background: #f0f0f0; padding: 1px 4px;">BRS</code>, <code style="background: #f0f0f0; padding: 1px 4px;">Congress</code>, <code style="background: #f0f0f0; padding: 1px 4px;">BJP</code></p>
+                    <p style="margin: 5px 0;"><strong>Major Issues:</strong> Governance record, unemployment, regional development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Mobile Responsive Styles -->
+    <style>
+        @media (max-width: 768px) {
+            div[style*="width: 32%"] {
+                width: 100% !important;
+                margin-bottom: 15px !important;
+            }
+            
+            div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+            
+            h1 {
+                font-size: 22px !important;
+            }
+            
+            h2 {
+                font-size: 20px !important;
+            }
+            
+            .main-content {
+                padding: 10px !important;
+            }
+        }
+    </style>
+
+
+
+    <!-- Main Content -->
+    <div style="display: flex; justify-content: space-between; margin-left: 6%;">
+
+        <!-- Main News Section (60%) -->
+        <div id="main-news" style="width: 60%; background: #fff; padding: 15px; box-shadow: 0 0 5px rgba(0,0,0,0.2); border-radius: 5px;">
+            <img id="main-news-image" src="https://vaartha.com/wp-content/uploads/2025/01/%E0%B0%AA%E0%B0%B5%E0%B0%A8%E0%B1%8D-%E0%B0%95%E0%B0%B2%E0%B1%8D%E0%B0%AF%E0%B0%BE%E0%B0%A3%E0%B1%8D-%E0%B0%85%E0%B0%9F%E0%B0%B5%E0%B1%80-%E0%B0%B6%E0%B0%BE%E0%B0%96%E0%B0%B2%E0%B1%8B-%E0%B0%B8%E0%B0%AE%E0%B0%97%E0%B1%8D%E0%B0%B0-%E0%B0%AE%E0%B0%BE%E0%B0%B0%E0%B1%8D%E0%B0%AA%E0%B1%81%E0%B0%B2%E0%B1%81-%E0%B0%AA%E0%B0%B0%E0%B1%8D%E0%B0%AF%E0%B0%B5%E0%B1%87%E0%B0%95%E0%B1%8D%E0%B0%B7%E0%B0%A3.jpg.webp" style="width: 100%; height: auto; border-radius: 5px;">
+            <h2 id="main-news-heading" style="margin-top: 10px;">పవన్ కల్యాణ్ అటవీ శాఖలో సమగ్ర మార్పులు పర్యవేక్షణ</h2>
+            <p id="main-news-text">గత ఆరు నెలలుగా పంచాయతీ రాజ్, గ్రామీణాభివృద్ధి శాఖలపై ప్రత్యేక దృష్టి పెట్టిన ఉప ముఖ్యమంత్రి పవన్ కల్యాణ్, ఇప్పుడు తన దృష్టిని అటవీ శాఖపై సారించారు. రాష్ట్ర అటవీశాఖకు ఎదురవుతున్న సవాళ్లను ఎదుర్కొనేందుకు, శాఖలో పెండింగ్‌లో ఉన్న సమస్యలను పరిష్కరించేందుకు సమగ్ర ప్రణాళిక రూపొందించాలని ఆయన కృషి చేస్తున్నారు.అటవీ శాఖలో గత కొన్నేళ్లుగా ఉన్న సమస్యలను గుర్తించిన పవన్ కల్యాణ్, ఆ శాఖను మరింత సమర్థవంతంగా చేయడం లక్ష్యంగా చర్యలు చేపట్టారు. ఈ క్రమంలో అధికారులను వెంటనే నివేదికలు సమర్పించాలని ఆదేశించారు. ముఖ్యంగా భూముల పరిరక్షణకు ప్రాధాన్యత ఇవ్వాలని, అనధికార ఆక్రమణలపై కఠిన చర్యలు తీసుకోవాలని స్పష్టంగా చెప్పారు. కడప అటవీ డివిజన్‌లో వచ్చిన భూఆక్రమణల ఫిర్యాదులపై ప్రత్యేక డ్రైవ్ నిర్వహించాలని ఆదేశించారు.శేషాచలం అడవుల్లో లభ్యమయ్యే విలువైన ఎర్రచందనం అక్రమ రవాణాను అడ్డుకోవడంపై పవన్ కల్యాణ్ దృష్టి సారించారు. ఈ అక్రమ కార్యకలాపాలను నివారించేందుకు కఠిన చర్యలు తీసుకోవాలని, అంతర్జాతీయ మార్కెట్‌లో ఎర్రచందనం విక్రయాలపై పటిష్ఠ నిఘా ఉంచాలని అధికారులను ఆదేశించారు.
+                <br><br> సరిహద్దు ప్రాంతాల్లో నిఘాను బలపరచాలని, ఈ అక్రమ రవాణాను పూర్తిగా నిలిపివేయాలని సూచించారు.అటవీ ఉత్పత్తుల ద్వారా ఆదాయాన్ని పెంచడం, స్థానిక గిరిజనులను ఈ ప్రక్రియలో భాగస్వాములుగా చేయడం పవన్ కల్యాణ్ ప్రాధాన్యంగా తీసుకున్నారు. పర్యావరణ పచ్చదనాన్ని 50% పెంచేందుకు, కలప ఉత్పత్తుల ద్వారా దేశ అవసరాలను తీరుస్తూ దిగుమతులను తగ్గించేందుకు కార్యాచరణ ప్రణాళిక రూపొందించాలని ఆదేశించారు.వన్యప్రాణుల రక్షణ, గిరిజనుల చైతన్యం పెంపు, అడవుల్లో వేటను నియంత్రించడం తదితర అంశాలను పవన్ ప్రత్యేకంగా ప్రస్తావించారు. మదపుటేనుగుల సమస్యపై సమీక్ష నిర్వహించి, కర్ణాటక ప్రభుత్వం సహకారంతో కుంకీ ఏనుగులను తేవాలని సూచించారు. 2047 నాటికి కలప ఉత్పత్తుల ఎగుమతిలో భారతదేశం ప్రధాన స్థానంలో నిలవాలని లక్ష్యంగా, రాష్ట్రం నుంచి కలప ఉత్పత్తుల అభివృద్ధికి సమగ్ర కార్యాచరణ రూపొందించాలని పవన్ కల్యాణ్ స్పష్టం చేశారు.
+            </p>
+            
+            <!-- Leave a Reply Section -->
+            <div style="margin-top: 30px; padding: 15px; background: #f9f9f9; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.2);">
+                <h3 style="margin-bottom: 10px;">LEAVE A REPLY</h3>
+                <p style="font-size: 14px; color: #555;">Your email address will not be published. Required fields are marked *</p>
+                <form>
+                    <label for="comment" style="display: block; font-weight: bold;">Comment *</label>
+                    <textarea id="comment" rows="4" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
+                    
+                    <label for="name" style="display: block; margin-top: 10px; font-weight: bold;">Name *</label>
+                    <input type="text" id="name" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    
+                    <label for="email" style="display: block; margin-top: 10px; font-weight: bold;">Email *</label>
+                    <input type="email" id="email" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    
+                    <label for="website" style="display: block; margin-top: 10px; font-weight: bold;">Website</label>
+                    <input type="text" id="website" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    
+                    <div style="margin-top: 10px;">
+                        <input type="checkbox" id="save-info">
+                        <label for="save-info" style="font-size: 14px;">Save my name, email, and website in this browser for the next time I comment.</label>
+                    </div>
+                    
+                    <button type="submit" style="margin-top: 15px; background: black; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;">POST COMMENT</button>
+                </form>
+            </div>
+        </div>
+    
+        <!-- Right Side News List (30%) -->
+        <div style="width: 40%; background: #f9f9f9; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif;">
+
+            <h2>Latest News ..</h2>
+        
+            <div class="news-item" onclick="swapNews('https://vaartha.com/wp-content/uploads/2024/10/Pawan-Kalyan-should-be-investigated-by-CBI.-KA-Paul-demands.jpg.webp', 'పవన్ కల్యాణ్ పై సీబీఐ విచారణ జరపాలి : కేఏ పాల్ డిమాండ్', 'అమరావతి : ఏపీ డిప్యూటీ సీఎం పదవి నుంచి పవన్ కల్యాణ్ ను తొలగించాలని… లేనిపక్షంలో ఆయనే స్వచ్ఛందంగా ఆ పదవి నుంచి వైదొలగాలని ప్రజాశాంతి పార్టీ అధ్యక్షుడు కేఏ పాల్ అన్నారు. లక్ష కల్తీ లడ్డూలను అయోధ్యకు పంపించారని పవన్ అబద్ధాలు చెప్పారని విమర్శించారు. ఎవరో ఇచ్చిన స్క్రిప్ట్ ను సినిమాల్లో మాదిరి చదువుతున్నారని ఎద్దేవా చేశారు. తిరుమల లడ్డూ విషయంలో 100 కోట్ల మంది హిందువుల మనోభావాలు దెబ్బతినేలా పవన్ మాట్లాడారని అన్నారు.  పవన్ పై చర్యలు తీసుకోవాలని హైదరాబాద్ పంజాగుట్ట పీఎస్ లో కేఏ పాల్ ఫిర్యాదు చేశారు. ఈ సందర్భంగా ఆయన మాట్లాడుతూ… పవన్ పై ప్రధానమంత్రి, కేంద్ర హోంమంత్రి, సుప్రీంకోర్టు చీఫ్ జస్టిస్, సీబీఐ విచారణ జరపాలని కోరారు. పవన్ పై తాను 14 సెక్షన్ల కింద పోలీసులకు ఫిర్యాదు చేశానని తెలిపారు. ఆర్టికల్ 8 ప్రకారం ఆయనను డిప్యూటీ సీఎం పదవి నుంచి తొలగించాలని అన్నారు.')" 
+                style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; transition: background 0.3s ease; background: #fff; border-radius: 5px;">
+                <img src="https://vaartha.com/wp-content/uploads/2024/10/Pawan-Kalyan-should-be-investigated-by-CBI.-KA-Paul-demands.jpg.webp" style="width: 80px; height: 60px; margin-right: 15px; border-radius: 4px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">పవన్ కల్యాణ్ పై సీబీఐ విచారణ జరపాలి : కేఏ పాల్ డిమాండ్</h3>
+            </div>
+        
+            <div class="news-item" onclick="swapNews('https://th-i.thgim.com/public/incoming/bo70ck/article69115239.ece/alternates/LANDSCAPE_1200/10745_16_1_2025_21_21_48_1_IMG_20250116_WA0037.JPG', 'Delegation led by CM Chandrababu Naidu heading for Davos today', 'According to an official release, before heading to Davos, Mr. Naidu and other members of the delegation will meet the Indian Ambassador and engage with industrialists from the Telugu States in the national capital        A delegation led by Chief Minister N. Chandrababu Naidu will leave for Davos, Switzerland, on Sunday to participate in the World Economic Forum (WEF) annual meeting. The delegation will include Finance Minister Yanamala Ramakrishnudu, IT Minister Nara Lokesh, Chief Secretary Anil Chandra Punetha, and other officials.  The delegation is leaving for Zurich from New Delhi at 1.30 p.m. on January 19. The WEF is beginning on January 20. The Chief Minister will return to the State on January 23. According to an official release, before heading to Davos, Mr. Naidu and other members of the delegation will meet the Indian Ambassador and engage with industrialists from the Telugu States in the national capital.  aidu. File | Photo Credit: Special Arrangement A high-level delegation of the Andhra Pradesh government, led by Chief Minister N. Chandrababu Naidu, and comprising Ministers Nara Lokesh and T.G. Bharat among others, is attending the World Economic Forum (WEF)-2025 at Davos in Switzerland to promote the Brand AP initiative and attract investments to the State. The delegation is leaving for Zurich from New Delhi at 1.30 p.m. on January 19. The WEF is beginning on January 20. World Economic Forum 2025: Andhra Pradesh Minister Nara Lokesh to showcase investment opportunities According to an official release, before heading to Davos, Mr. Naidu and other members of the delegation will meet the Indian Ambassador and engage with industrialists from the Telugu States in the national capital. After arriving in the Swiss city nestled in the picturesque Alps mountain range, Mr. Naidu will attend a dinner-meeting with industrialists and have a special meeting with ArcelorMittal Chairman Lakshmi Niwas Mittal. On the second day, Mr. Naidu and his team will participate in sessions on green hydrogen and meet CEOs from companies like Coca-Cola, LG, Cisco, and others. They will also meet UAE Economy Minister Abdulla Bin and join discussions on ‘Energy Transition’ and ‘The Blue Economy’.       ')" 
+                style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; transition: background 0.3s ease; background: #fff; border-radius: 5px;">
+                <img src="https://th-i.thgim.com/public/incoming/bo70ck/article69115239.ece/alternates/LANDSCAPE_1200/10745_16_1_2025_21_21_48_1_IMG_20250116_WA0037.JPG" style="width: 80px; height: 60px; margin-right: 15px; border-radius: 4px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">Delegation led by CM Chandrababu Naidu heading for Davos today</h3>
+            </div>
+        
+            <div class="news-item" onclick="swapNews('https://media.andhrajyothy.com/media/2024/20241209/chandrababu_naidu_ef0138e25a_v_jpg.webp', 'Chandrababu Naidu: ఈరోజు ఢిల్లీకి సీఎం చంద్రబాబు నాయుడు.. కారణమిదే..', 'ఆంధ్రప్రదేశ్ ముఖ్యమంత్రి చంద్రబాబు నాయుడు ఈ రోజు సాయంత్రం ఢిల్లీలోని కీలక కార్యక్రమాలకు వెళ్లనున్నారు. రేపు మాజీ ప్రధాని అటల్ బిహారీ వాజ్‌పేయ్ శత జయంతి వేడుకల్లో పాల్గొంటారు. ఈ వేడుకల్లో కేంద్ర, రాష్ట్ర ప్రభుత్వాలు, రాజకీయ నేతలు, ప్రజా ప్రతినిధులు పాల్గొననున్నారు. తెలుగు దేశం పార్టీ (TDP) అధ్యక్షులు, ఆంధ్రప్రదేశ్ (Andhra Pradesh) ముఖ్యమంత్రి నారా చంద్రబాబు నాయుడు (Chandrababu Naidu) ఈరోజు సాయంత్రం ఢిల్లీలోని కీలక కార్యక్రమాలకు హాజరవడానికి వెళ్లనున్నారు. ఈ క్రమంలో సీఎం చంద్రబాబు రేపు ఢిల్లీలో జరిగే మాజీ ప్రధానమంత్రి అటల్ బిహారీ వాజ్‌పేయ్ శత జయంతి వేడుకల్లో పాల్గొననున్నారు. ఈ కార్యక్రమం జాతీయ స్థాయిలో నిర్వహించబడుతుంది. ఈ కార్యక్రమంలో కేంద్ర ప్రభుత్వం, వివిధ రాష్ట్ర ప్రభుత్వాల ప్రతినిధులు, రాజకీయ నాయకులు, ప్రజా ప్రతినిధులు పాల్గొంటారు. వాజ్‌పేయ్ రాజకీయ మార్గదర్శకత్వం, దేశభక్తి, వంటి అనేక సేవలను గుర్తు చేసుకునేందుకు ఈ వేడుక నిర్వహిస్తున్నారు. ఈ సమావేశంలో ఎన్డీయే కూటమిలో భాగమైన వివిధ రాష్ట్రాల ముఖ్యమంత్రులు, ఉన్నతాధికారులు, బీజేపీ నేతలు పాల్గొని, దేశ రాజకీయాలపై సమీక్ష, చర్చలు జరిపే అవకాశం ఉంది. తెలుగు దేశం పార్టీ (TDP) జాతీయ, రాష్ట్ర రాజకీయాల్లో కీలక పాత్ర పోషిస్తున్న నేపథ్యంలో సీఎం చంద్రబాబు ఈ సమావేశంలో ఎన్డీయే కూటమిని మరింత బలోపేతం చేయడానికి పలు అంశాలను ప్రస్తావించవచ్చని రాజకీయ వర్గాలు అంచనా వేస్తున్నాయి. సీఎం పర్యటన నేపథ్యంలో ఆంధ్రప్రదేశ్ రాష్ట్రానికి, కేంద్ర ప్రభుత్వంతో ఉన్న సంబంధాల పరంగా కూడా ఎంతో ప్రాధాన్యం కలిగి ఉందని చెప్పవచ్చు.   ')" 
+                style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; transition: background 0.3s ease; background: #fff; border-radius: 5px;">
+                <img src="https://media.andhrajyothy.com/media/2024/20241209/chandrababu_naidu_ef0138e25a_v_jpg.webp" style="width: 80px; height: 60px; margin-right: 15px; border-radius: 4px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">Chandrababu Naidu: ఈరోజు ఢిల్లీకి సీఎం చంద్రబాబు నాయుడు.. కారణమిదే..</h3>
+            </div>
+        
+            <div class="news-item" onclick="swapNews('https://www.hindustantimes.com/ht-img/img/2025/02/02/550x309/andhra_cm_chandrababu_naidu_1733049983361_1738477743938.jpg', 'After Bihar budget bonanza, YSRCPs swipe at NDA ally TDP: Andhra got zero', 'After BJP-led National Democratic Alliances (NDA) ally Bihar found multiple mentions in Union Budget 2025, opposition in Andhra Pradesh, another partner of the ruling bloc in Centre, took a swipe at the CM Chandrababu Naidu-led government of the state for not securing significant budgetary allocations. YSRCP leader Karthik Yellapragada slammed the Telugu Desam Party (TDP) government for not getting the state in on the budget despite having considerable influence at the Centre. He said that it was due to the lack of effective political leadership, particularly from the TDP-Jana Sena coalition government and BJP at the Centre, that this couldnot happen. In a self-made video, Karthik highlighted how Nitish Kumars state received many benefits like Greenfield airports, expansion of Patna Airport, Makhana board, and the Western Kosi Canal ERM project. Wherein, Andhra Pradesh received no allocations in key sectors like education, agriculture, industry and infrastructure. Despite being the significant parties in the country which is one led by Chandrababu Naidu and one by Nitish Kumar, we see that Bihar has gotten far advantage than Andhra Pradesh, he said.  that there is hardly any budget allocated to the state. In the Education, Agriculture, Industry and infrastructure sectors, Andhra Pradesh has gotten zero in terms of budget allocation. We want to question that despite being so powerful at the Centre with 16 MPs, why leadership of Chandrababu Naidu could not secure any proportion of budget allocation to the state, the YSRCP leader added.')" 
+                style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; transition: background 0.3s ease; background: #fff; border-radius: 5px;">
+                <img src="https://www.hindustantimes.com/ht-img/img/2025/02/02/550x309/andhra_cm_chandrababu_naidu_1733049983361_1738477743938.jpg" style="width: 80px; height: 60px; margin-right: 15px; border-radius: 4px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">After Bihar budget bonanza, YSRCP's swipe at NDA ally TDP: 'Andhra got zero'</h3>
+            </div>
+        
+            <div class="news-item" onclick="swapNews('https://vaartha.com/wp-content/uploads/2025/02/image-221.png.webp', 'మిర్చి రైతులను ఆదుకోవాలని చంద్రబాబుకు జగన్ ట్వీట్', 'మిర్చి రైతులను ఏపీ ప్రభుత్వం తక్షణమే ఆదుకోవాలని వైఎస్సార్ కాంగ్రెస్ పార్టీ అధినేత వైఎస్ జగన్ మోహన్ రెడ్డి డిమాండ్ చేశారు. బుధవారం గుంటూరు మార్కెట్ యార్డులో మిర్చి రైతులను వైఎస్ జగన్ పరామర్శించారు. అనంతరం తన పర్యటనపై ఎక్స్ వేదికగా వైఎస్ జగన్ సుదీర్ఘ ట్వీట్ చేశారు. ధరల్లేక, పంటను కొనేవారు లేక మిర్చి రైతులు తీవ్ర ఇబ్బందులు పడుతున్నారని జగన్ పేర్కొన్నారు. గుంటూరు మార్కెట్‌ యార్డులో రైతులను పరామర్శించాననీ, పెద్ద సంఖ్యలో రైతులు ఈ కార్యక్రమానికి స్వచ్ఛందంగా తరలిరావడంతో మిర్చియార్డు ప్రాంతం కిక్కిరిసిపోయిందని ట్వీట్ చేశారు. ఈ కారణంగా ప్రజలనుద్దేశించి పూర్తిగా మాట్లాడలేకపోయానంటూ వైఎస్ జగన్ సుదీర్ఘ ట్వీట్ చేశారు. తక్షణమే రైతులను ఆదుకోవాలని వైఎస్ జగన్ ట్వీట్ వేదికగా కోరారు. ధరల్లేక, పంటను కొనేవారు లేక తీవ్ర ఇబ్బందులు పడుతున్న మిర్చి రైతులను గుంటూరు మార్కెట్‌ యార్డులో పరామర్శించాను. పెద్ద సంఖ్యలో రైతులు ఈ కార్యక్రమానికి స్వచ్ఛందంగా తరలిరావడంతో మిర్చియార్డు ప్రాంతం కిక్కిరిసిపోయింది. అందుకే ప్రజలనుద్దేశించి మీడియా ద్వారా పూర్తిగా మాట్లాడలేకపోయాను. అన్ని అంశాలను ఈ ట్వీట్‌లో పొందుపరుస్తున్నాను.  1.రాష్ట్రంలో కూటమి ప్రభుత్వం అధికారంలోకి వచ్చిన తర్వాత అన్నదాతలకు కష్టాలు, నష్టాలే మిగులుతున్నాయి. పంటలకు మద్దతు ధర దేవుడెరుగు.. కనీసం అమ్ముకుందామన్నా కొనేవారు లేరు. మొన్నటి వరకూ ధాన్యం రైతుల కష్టాలు చూశాం. ఇవాళ మిర్చిరైతుల కష్టాలు చూస్తున్నాం.  @ncbn గారు సీట్లోకి వచ్చారు, మళ్లీ రైతులను పట్టి పీడించడం మొదలుపెట్టారు.    2.మన ప్రభుత్వంలో నిరుడు క్వింటాలుకు అత్యధికంగా రూ.21-27 వేల దాకా పలికిన మిర్చి ధర, ఇప్పుడు రూ.8-11వేలకు పడిపోయింది. 3.పంట బాగుంటే ఎకరాకు సగటున 20 క్వింటాళ్లు దిగుబడి వస్తుంది. తెగుళ్లు కారణంగా ఈ ఏడాది దిగుబడులు పడిపోయాయి. ఏ జిల్లాలో చూసినా ఎకరాకు 10 క్వింటాళ్లకు మించి రాలేదు. పెట్టుబడి ఖర్చులు చూస్తే, ఎకరా సాగుకు సుమారు రూ.1,50,000 పైమాటే అవుతోంది. కౌలు రైతుల పరిస్థితి మరింత దారుణంగా ఉంది. 4.కృష్ణా, ఎన్టీఆర్‌, గుంటూరు, బాపట్ల, ప్రకాశం, కర్నూలు, అనంతపురం ఈజిల్లాల్లో రైతులందరి పరిస్థితీ అంతే. 5.పరిస్థితి ఇంత దారుణంగా ఉన్నా ఆ ముఖ్యమంత్రి, వ్యవసాయ శాఖ మంత్రి.. వీరంతా పట్టించుకోవడంలేదు. ప్రభుత్వంలో ఒక్క రివ్యూ కూడా చేయలేదు. గవర్నమెంటు తరఫున రైతులను పలకరించే వారు లేరు. రాష్ట్ర సచివాలయానికి అత్యంత సమీపంలో గుంటూరు మార్కెట్‌  యార్డు ఉంది. ఇక్కడ రైతుల ఆక్రోశం, ఆవేదన చంద్రబాబునాయుడు గారికి వినిపించడంలేదు.')" 
+                style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; transition: background 0.3s ease; background: #fff; border-radius: 5px;">
+                <img src="https://vaartha.com/wp-content/uploads/2025/02/image-221.png.webp" style="width: 80px; height: 60px; margin-right: 15px; border-radius: 4px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">మిర్చి రైతులను ఆదుకోవాలని చంద్రబాబుకు జగన్ ట్వీట్</h3>
+            </div>
+        
+            <div class="news-item" onclick="swapNews('https://vaartha.com/wp-content/uploads/2025/02/chandrababu_chilli_6e959cf33f_v_jpg.webp', 'మిర్చి రైతులను ఆదుకునేందుకు కేంద్రం అంగీకారం', 'ఏపీలో మిర్చి రైతులు ఎదుర్కొంటున్న సమస్యలను పరిష్కరించేందుకు కేంద్ర ప్రభుత్వం సానుకూలంగా స్పందించింది. ముఖ్యమంత్రి చంద్రబాబు నాయుడు విజ్ఞప్తి మేరకు మార్కెట్ ఇంటర్వెన్షన్ స్కీమ్ (MIS) ద్వారా రైతులకు వెతనం మద్దతు పెంచే దిశగా కేంద్ర వ్యవసాయ శాఖ పరిశీలన చేపట్టింది. కేంద్ర వ్యవసాయ మంత్రి శివరాజ్ సింగ్ చౌహాన్ ఈ సమస్యను అత్యంత ప్రాధాన్యతగా తీసుకుని, మిర్చి ఎగుమతులను పెంచే అవకాశాలను పరిశీలించాలని సంబంధిత అధికారులకు ఆదేశాలు జారీ చేశారు. అంతేకాదు, మిర్చి ఉత్పత్తి పెరుగుదలకు నూతన విధానాలు అమలు చేయాలని కూడా సూచించారు. ఏపీలో మిర్చి రైతులు ఎదుర్కొంటున్న సమస్యలను పరిష్కరించేందుకు కేంద్ర ప్రభుత్వం తక్షణ చర్యలు తీసుకునేందుకు సిద్ధమైంది. కేంద్రం – రైతులకు ఊరట: ఏపీ మిర్చి రైతులను ఆదుకునేందుకు కేంద్ర వ్యవసాయ శాఖ ప్రత్యేక చర్యలు తీసుకుంటోంది. మార్కెట్ ఇంటర్వెన్షన్ స్కీమ్ కింద అదనపు సాయాన్ని అందించేందుకు కేంద్రం పరిశీలిస్తోంది. కేంద్ర వ్యవసాయ శాఖ మంత్రి శివరాజ్ సింగ్ చౌహాన్ మిర్చి ఎగుమతులను పెంచే అవకాశాలను పరిశీలించాలంటూ సంబంధిత అధికారులకు ఆదేశాలు ఇచ్చారు. అంతేకాదు, మిర్చి రైతుల కోసం మరిన్ని విధానపరమైన మార్పులు తేవాలని కేంద్రం ప్రణాళిక రూపొందిస్తోంది. రామ్మోహన్ నాయుడు భేటీ – కీలక చర్చలు: ఏపీ సీఎం చంద్రబాబు విజ్ఞప్తి, కేంద్ర మంత్రి శివరాజ్ సింగ్ చౌహాన్ ఆదేశాలతో కేంద్ర వ్యవసాయ శాఖ అధికారులు రంగంలోకి దిగారు. కేంద్రమంత్రి రామ్మోహన్ నాయుడు కేంద్ర వ్యవసాయ శాఖ మంత్రి శివరాజ్ సింగ్ చౌహాన్‌తో భేటీ అయ్యారు. ఏపీ మిర్చి రైతుల సమస్యలపై కీలక చర్చలు జరిగాయి. పర్యవేక్షణ, సహాయ పథకాలపై కేంద్రానికి నివేదిక అందజేశారు. ఈ సమావేశంలో ఏపీ ప్రభుత్వ ఉన్నతాధికారులు పాల్గొన్నారు, తద్వారా రైతులకు తక్షణ పరిష్కారం కోసం మార్గం సుగమమవుతోంది. చంద్రబాబు నాయుడు విజ్ఞప్తి – కీలక సూచనలు: ఢిల్లీలో ప్రధానంగా మిర్చి రైతుల సమస్యలపైనే చంద్రబాబు దృష్టి సారించారు. మార్కెట్ జోక్యం పథకాన్ని విస్తరించాలి ప్రస్తుతం 25% పంట కొనుగోలు సీలింగ్‌ను తొలగించి మరింత ఎక్కువ మిర్చి కొనుగోలు చేయాలని చంద్రబాబు సూచించారు. ధరల నిర్ణయంలో మార్పులు ICAR నిర్ణయించిన మిర్చి ధరలు రైతుల సాగు వ్యయాన్ని పరిగణనలోకి తీసుకోలేదని, అవి తగ్గించాల్సిన అవసరం ఉందని చెప్పారు. మిర్చి ఎగుమతులకు ప్రోత్సాహం ఏపీ రైతుల నుంచి మిర్చిని ఎక్కువగా కొనుగోలు చేసి ఎగుమతులను పెంచేలా చర్యలు తీసుకోవాలని కోరారు. కొనుగోలు వ్యయం పంచుకోవాలని సూచన కేంద్ర, రాష్ట్ర ప్రభుత్వాలు కలిసి మిర్చి కొనుగోలు వ్యయాన్ని పంచుకోవాలని సూచించారు. తక్షణ చర్యలకు కేంద్రం ఆదేశాలు: వ్యవసాయ శాఖ ఉన్నతాధికారులను వెంటనే సమావేశం నిర్వహించమని శివరాజ్ సింగ్ చౌహాన్ ఆదేశించారు. ఇతర కేంద్ర మంత్రిత్వ శాఖలతో సమన్వయం చేసుకుని తక్షణ పరిష్కారం తీసుకురావాలని సూచించారు. రైతులకు ప్రయోజనాలు ఏమిటి? ధరల స్థిరీకరణ – మార్కెట్ మద్దతు పెరిగే అవకాశం ఎగుమతులకు కొత్త అవకాశాలు – మరిన్ని దేశాలకు మిర్చి ఎగుమతికి అవకాశాలు కొనుగోలు పరిమితులు తగ్గింపు – మరింత మిర్చి కొనుగోలు చేయడం ద్వారా రైతులకు లాభం విధానపరమైన మార్పులు – రైతుల ఆదాయాన్ని పెంచే చర్యలు ఏపీ మిర్చి రైతుల సమస్యలపై కేంద్రం తక్షణ చర్యలు చేపట్టేందుకు సిద్ధమైంది. చంద్రబాబు నాయుడు చేసిన కీలక విజ్ఞప్తికి కేంద్ర ప్రభుత్వం సానుకూలంగా స్పందిస్తూ రైతులకు ఊరటనిచ్చేలా చర్యలు తీసుకుంటోంది. ముందు రోజుల్లో రైతులకు మరిన్ని ప్రయోజనాలు అందే అవకాశాలు ఉన్నాయి.')" 
+                style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; transition: background 0.3s ease; background: #fff; border-radius: 5px;">
+                <img src="https://vaartha.com/wp-content/uploads/2025/02/chandrababu_chilli_6e959cf33f_v_jpg.webp" style="width: 80px; height: 60px; margin-right: 15px; border-radius: 4px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">మిర్చి రైతులను ఆదుకునేందుకు కేంద్రం అంగీకారం</h3>
+            </div>
+        
+        </div>
+        
+    
+    </div>
+    
+    <script>
+        function swapNews(image, heading, text) {
+            document.getElementById("main-news-image").src = image;
+            document.getElementById("main-news-heading").innerText = heading;
+            document.getElementById("main-news-text").innerText = text;
+        }
+    </script>
+
+
+
+<!-- Footer -->
+<footer style="max-width: 100%; margin: 50px auto; background-color: #000; padding: 40px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; display: flex; flex-direction: column; color: #fff; font-family: Arial, sans-serif;">
+
+    <!-- Header Section -->
+    <div style="display: flex; align-items: center; margin-bottom: 30px;">
+        <div style="width: 50px; height: 50px; background-color: #004080; border-radius: 50%; margin-right: 20px; 
+        display: flex; align-items: center; justify-content: center; 
+        color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;">ABP
+    </div>
+        <div style="font-size: 1.2em; font-weight: bold;">ABHYDAYAM PARTY</div>
+    </div>
+
+    <div style="display: flex; gap: 50px; flex-wrap: wrap; justify-content: space-between;">
+        <!-- Form Section -->
+        <div style="max-width: 30%; display: flex; flex-direction: column; gap: 20px; flex: 1;">
+            <h2 style="margin: 0;">Join Us</h2>
+            <input type="email" placeholder="Email address" required 
+                style="padding: 10px; border: 1px solid #fff; border-radius: 4px; background: transparent; color: #fff;">
+            <input type="text" placeholder="Zip" required 
+                style="padding: 10px; border: 1px solid #fff; border-radius: 4px; background: transparent; color: #fff;">
+            <input type="tel" placeholder="Mobile phone" 
+                style="padding: 10px; border: 1px solid #fff; border-radius: 4px; background: transparent; color: #fff;">
+            <input type="submit" value="SUBMIT" 
+                style="padding: 10px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background-color 0.3s;"
+                onmouseover="this.style.backgroundColor='#c9302c'" 
+                onmouseout="this.style.backgroundColor='#dc3545'">
+        </div>
+
+        <!-- Links Section -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px; background-color: #000; border-radius: 8px; text-align: left;">
+
+            <!-- Column 1 -->
+            <div>
+                <h3 style="color: #0056b3; font-size: 18px; margin-bottom: 10px;">About Us</h3>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Who we are</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">What we do</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Who we serve</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">About the ABHYDAYAM Party</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Leadership</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">State Parties</a>
+            </div>
+        
+            <!-- Column 2 -->
+            <div>
+                <h3 style="color: #0056b3; font-size: 18px; margin-bottom: 10px;">Where We Stand</h3>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Party platform</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">The issues</a>
+            </div>
+        
+            <!-- Column 3 -->
+            <div>
+                <h3 style="color: #0056b3; font-size: 18px; margin-bottom: 10px;">Get Involved</h3>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Take action</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Events</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Trainings</a>
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Work with us</a>
+            </div>
+        
+            <!-- Column 4 -->
+            <div>
+                <h3 style="color: #0056b3; font-size: 18px; margin-bottom: 10px;">Support Us</h3>
+                <!-- <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Shop</a> -->
+                <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Donations</a>
+            </div>
+        
+        </div>
+        
+        
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <!-- Left-aligned Signup Text -->
+        <div style="max-width: 40%; font-size: 14px; line-height: 1.6;">
+            <p><strong>Sign up to get texts.</strong> By entering your phone number, you are consenting to receive recurring automated text messages & calls from the ABHYDAYAM with news & info about our work. For SMS, message & data rates may apply. Text STOP to end. Text HELP for help. <a href="#" style="color: #fff; text-decoration: underline;">Privacy policy</a> & <a href="#" style="color: #fff; text-decoration: underline;">ToS</a>.</p>
+        </div>
+
+        <!-- Right-aligned Footer Content -->
+        <div style="max-width: 55%; text-align: left;">
+            <nav style="margin-bottom: 10px;">
+                <ul style="list-style: none; padding: 0; display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
+                    <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Contact us</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Press releases</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Privacy policy</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Terms of service</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Submission Terms</a></li>
+                </ul>
+            </nav>
+
+            <p style="font-size: 14px;">Copyright © 2025 ABHYDAYAM Services Corporation. All rights reserved.</p>
+            <p style="font-size: 14px;">Paid for by the ABHYDAYAM 9876543210</p>
+            <p style="font-size: 14px;">This communication is not authorized by any candidate or candidate's committee.</p>
+            <p style="font-size: 14px;">ABHYDAYAM<br>
+                Hyderabd , Telangana India<br>
+                Hyderabad, IN 500039</p>
+            <p style="margin-top: 10px; font-weight: bold; font-size: 14px;">
+            </p>
+        </div>
+    </div>
+
+    
+
+</footer>
+
+
+
+</body>
+</html>

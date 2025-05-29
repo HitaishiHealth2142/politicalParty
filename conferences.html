@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhyudayam - Conferences</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333;">
+
+ <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+  <!-- Header -->
+    <!-- Header with Logo, Name, and Social Media Icons -->
+  <header style="background: #004080; color: #fff; padding: 20px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <img src="https://img.mensxp.com/media/content/2023/Mar/2---credit---Sri-Venkateswar-Creations_64212be2c7476.jpeg?w=780&h=337&cc=1" alt="Abhyudayam Logo" style="height: 80px;">
+      <h1 style="margin: 0;">Abhyudayam</h1>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div id="menu-btn" onclick="toggleMenu()" style="display: none; font-size: 28px; cursor: pointer;">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Navigation Links -->
+    <div id="nav-links" style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+      <a href="Abhyudhayam.html" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">HOME</a>
+      <a href="manifesto.html" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">Manifesto</a>
+      <a href="about.html" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">ABOUT</a>
+      <a href="contact.html" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">CONTACT US</a>
+      <a href="join.html" style="background: #ffcc00; color: #00264d; text-decoration: none; padding: 10px 18px; font-weight: bold; border-radius: 5px; font-size: 16px;">Join Abhyudhayam</a>
+      <a href="donate.html" style="background: #ff5733; color: #fff; text-decoration: none; padding: 10px 18px; font-weight: bold; border-radius: 5px; font-size: 16px;">Make a Donation</a>
+      <div style="display: flex; gap: 15px; margin-top: 10px;">
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-facebook"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-linkedin"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-youtube"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" style="color: #fff; font-size: 20px;"><i class="fab fa-telegram"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Responsive Script -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const navLinks = document.getElementById("nav-links");
+
+    function toggleMenu() {
+      if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none";
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      } else {
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.width = "100%";
+        menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+      }
+    }
+
+    // Handle resizing
+    function checkWindowSize() {
+      if (window.innerWidth > 768) {
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "row";
+        menuBtn.style.display = "none";
+      } else {
+        navLinks.style.display = "none";
+        menuBtn.style.display = "block";
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    }
+
+    window.onload = checkWindowSize;
+    window.onresize = checkWindowSize;
+  </script>
+    
+    <!-- Second Navbar (Former Side Menu) -->
+    <nav style="background: #003366; padding: 10px; text-align: center;">
+        <a href="news.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">News</a>
+        <a href="events.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Events</a>
+        <a href="meetings.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Meetings</a>
+        <a href="conferences.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Conferences</a>
+        <a href="media.html" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Media</a>
+        <a href="javascript:void(0);" onclick="openPollForm()" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Poll Survey</a>
+        <a href="javascript:void(0);" onclick="openLeadersForm()" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Political Leaders</a>
+        <a href="javascript:void(0);" onclick="document.getElementById('volunteerOverlay').style.display='block';" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold;">Volunteers</a>
+    </nav>
+
+    <!-- overlays -->
+        <!-- Poll Survey Form Overlay -->
+            <div id="pollOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 450px; background: #fff; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);">
+                    <h2 style="margin-top: 0; color: #00264d;">Poll Survey</h2>
+                    <p style="margin-bottom: 15px; color: #555;">Rate different aspects of the party and share your feedback.</p>
+                    
+                    <!-- Ratings Section -->
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Manifesto:</label>
+                        <div onclick="setRating(this, 'manifesto')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="manifesto-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Guarantees:</label>
+                        <div onclick="setRating(this, 'guarantees')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="guarantees-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Work of Party:</label>
+                        <div onclick="setRating(this, 'work')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="work-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Experience:</label>
+                        <div onclick="setRating(this, 'experience')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="experience-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">Service:</label>
+                        <div onclick="setRating(this, 'service')" style="display: inline-block; cursor: pointer; color: #ffcc00; font-size: 24px;">
+                            ★★★★★
+                        </div>
+                        <span id="service-rating" style="color: #333; font-weight: bold;">0</span>/5
+                    </div>
+
+                    <!-- Feedback Input -->
+                    <textarea placeholder="Your Feedback / Corrections" style="width: 90%; padding: 10px; height: 80px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+                    
+                    <button style="width: 95%; padding: 12px; background: linear-gradient(90deg, #00264d, #003366); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;" 
+                        onmouseover="this.style.background='#001a33'" 
+                        onmouseout="this.style.background='#00264d'">Submit</button>
+
+                    <button onclick="closePollForm()" style="width: 95%; margin-top: 10px; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;"
+                        onmouseover="this.style.background='#c9302c'" 
+                        onmouseout="this.style.background='#dc3545'">Close</button>
+                </div>
+            </div>
+
+            <!-- JavaScript to Handle Overlay & Star Ratings -->
+            <script>
+                function openPollForm() {
+                    document.getElementById("pollOverlay").style.display = "block";
+                }
+
+                function closePollForm() {
+                    document.getElementById("pollOverlay").style.display = "none";
+                }
+
+                function setRating(element, category) {
+                    let stars = "★★★★★";
+                    let rating = event.clientX - element.getBoundingClientRect().left;
+                    let selectedStars = Math.ceil((rating / element.offsetWidth) * 5); // Calculate star rating
+
+                    if (selectedStars > 5) selectedStars = 5; // Max 5 stars
+                    if (selectedStars < 0) selectedStars = 0; // Min 0 stars
+
+                    document.getElementById(category + "-rating").innerText = selectedStars;
+                    element.innerHTML = stars.substring(0, selectedStars) + "☆☆☆☆☆".substring(0, 5 - selectedStars); // Update stars
+                }
+            </script>
+
+            <!-- Political Leaders Form Overlay -->
+            <div id="leadersOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999; overflow-y: auto;">
+                <div style="position: relative; top: 50px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 450px; background: #fff; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); max-height: 90vh; overflow-y: auto;">
+                    <h2 style="margin-top: 0; color: #00264d;">Election Participation Form</h2>
+                    <p style="margin-bottom: 15px; color: #555;">Fill in your details and select your category and location.</p>
+                    
+                    <!-- Personal Information Fields -->
+                    <label style="font-weight: bold; display: block; text-align: left;">Full Name:</label>
+                    <input type="text" id="fullName" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" placeholder="Enter your full name">
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Age:</label>
+                    <input type="number" id="age" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" placeholder="Enter your age">
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Gender:</label>
+                    <select id="gender" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Mobile Number:</label>
+                    <input type="tel" id="mobile" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" placeholder="Enter your mobile number">
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Email:</label>
+                    <input type="email" id="email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" placeholder="Enter your email">
+                    
+                    <!-- Position Selection -->
+                    <label style="font-weight: bold; display: block; text-align: left;">Position:</label>
+                    <select id="position" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Position --</option>
+                        <option value="Sarpanch">Village Sarpanch</option>
+                        <option value="MPTC">Mandal MPTC</option>
+                        <option value="ZPTC">Mandal ZPTC</option>
+                        <option value="MLA">Constituency MLA</option>
+                        <option value="MP">Member of Parliament (MP)</option>
+                    </select>
+                    
+                    <!-- Location Selection -->
+                    <label style="font-weight: bold; display: block; text-align: left;">State:</label>
+                    <select id="state" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="Telangana">Telangana</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">District:</label>
+                    <select id="district" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select District --</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Warangal">Warangal</option>
+                        <option value="Karimnagar">Karimnagar</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Constituency:</label>
+                    <select id="constituency" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Constituency --</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Mandal:</label>
+                    <select id="mandal" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Mandal --</option>
+                    </select>
+                    
+                    <label style="font-weight: bold; display: block; text-align: left;">Village:</label>
+                    <select id="village" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="">-- Select Village --</option>
+                    </select>
+                    
+                    <!-- Submit Button -->
+                    <button style="width: 95%; padding: 12px; background: linear-gradient(90deg, #00264d, #003366); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;" 
+                        onmouseover="this.style.background='#001a33'" 
+                        onmouseout="this.style.background='#00264d'">Submit</button>
+                    
+                    <button onclick="closeLeadersForm()" style="width: 95%; margin-top: 10px; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;"
+                        onmouseover="this.style.background='#c9302c'" 
+                        onmouseout="this.style.background='#dc3545'">Close</button>
+                </div>
+            </div>
+
+            <!-- JavaScript for Overlay and Dropdowns -->
+            <script>
+                function openLeadersForm() {
+                    document.getElementById("leadersOverlay").style.display = "block";
+                }
+
+                function closeLeadersForm() {
+                    document.getElementById("leadersOverlay").style.display = "none";
+                }
+
+                // Telangana Districts Data
+                const districtsData = {
+                "Adilabad": ["Adilabad", "Boath", "Nirmal", "Mudhole", "Khanapur"],
+                "Bhadradri Kothagudem": ["Bhadrachalam", "Pinapaka", "Yellandu", "Kothagudem", "Aswaraopeta"],
+                "Hyderabad": ["Nampally", "Malakpet", "Amberpet", "Khairatabad", "Jubilee Hills", "Sanathnagar", "Secunderabad", "Musheerabad", "Karwan", "Goshamahal", "Charminar", "Chandrayangutta", "Yakutpura", "Bahadurpura"],
+                "Jagtial": ["Dharmapuri", "Jagtial", "Korutla"],
+                "Jangaon": ["Jangaon", "Ghanpur (Station)"],
+                "Jayashankar Bhupalpally": ["Bhupalpally", "Manthani"],
+                "Jogulamba Gadwal": ["Gadwal", "Alampur"],
+                "Kamareddy": ["Kamareddy", "Yellareddy", "Banswada"],
+                "Karimnagar": ["Karimnagar", "Choppadandi", "Manakondur", "Husnabad"],
+                "Khammam": ["Khammam", "Wyra", "Palair", "Madhira", "Sathupalli"],
+                "Kumuram Bheem Asifabad": ["Asifabad", "Sirpur"],
+                "Mahabubabad": ["Mahabubabad", "Dornakal", "Thorrur"],
+                "Mahabubnagar": ["Mahabubnagar", "Devarakadra", "Makthal", "Narayanpet", "Kodangal"],
+                "Mancherial": ["Mancherial", "Bellampalli", "Chennur"],
+                "Medak": ["Medak", "Narsapur", "Patancheru"],
+                "Medchal-Malkajgiri": ["Malkajgiri", "Medchal", "Quthbullapur", "Kukatpally", "Uppal", "Ibrahimpatnam"],
+                "Mulugu": ["Mulugu"],
+                "Nagarkurnool": ["Nagarkurnool", "Achampet", "Kalwakurthy", "Jadcherla", "Shadnagar"],
+                "Nalgonda": ["Nalgonda", "Munugode", "Devarakonda", "Nagarjuna Sagar", "Miryalaguda"],
+                "Narayanpet": ["Narayanpet"],
+                "Nirmal": ["Nirmal", "Mudhole", "Boath"],
+                "Nizamabad": ["Nizamabad Urban", "Nizamabad Rural", "Balkonda", "Bodhan", "Armoor"],
+                "Peddapalli": ["Peddapalli", "Manthani", "Ramagundam"],
+                "Rajanna Sircilla": ["Sircilla", "Vemulawada"],
+                "Rangareddy": ["Ibrahimpatnam", "Maheshwaram", "Rajendranagar", "Serilingampally", "Chevella", "Parigi", "Tandur"],
+                "Sangareddy": ["Sangareddy", "Andole", "Zahirabad"],
+                "Siddipet": ["Siddipet", "Gajwel", "Dubbak"],
+                "Suryapet": ["Suryapet", "Kodad", "Huzurnagar"],
+                "Vikarabad": ["Vikarabad", "Tandur", "Parigi"],
+                "Wanaparthy": ["Wanaparthy", "Gadwal"],
+                "Warangal": ["Warangal West", "Warangal East", "Bhupalpally", "Parkal"],
+                "Yadadri Bhuvanagiri": ["Bhongir", "Aler", "Tungaturthi"]
+            };
+
+                // Telangana mandals
+                const mandalsData = {
+                "Adilabad": ["Adilabad", "Talamadugu", "Bela", "Narnoor"],
+                "Boath": ["Boath", "Neradigonda", "Indervelly"],
+                "Nirmal": ["Nirmal", "Sarangapur", "Laxmanchanda"],
+                "Mudhole": ["Mudhole", "Bhainsa", "Kubeer"],
+                "Khanapur": ["Khanapur", "Kadam", "Utnoor"],
+                "Bhadrachalam": ["Bhadrachalam", "Dummugudem", "Cherla"],
+                "Pinapaka": ["Pinapaka", "Manuguru", "Aswapuram"],
+                "Yellandu": ["Yellandu", "Gundala", "Bayyaram"],
+                "Kothagudem": ["Kothagudem", "Laxmidevipalli", "Tekulapalli"],
+                "Aswaraopeta": ["Aswaraopeta", "Mulkalapalli", "Dammapeta"],
+                "Nampally": ["Nampally", "Mehdipatnam", "Red Hills", "Abids"],
+                "Malakpet": ["Malakpet", "Chanchalguda", "Saidabad"],
+                "Khairatabad": ["Khairatabad", "Somajiguda", "Punjagutta"],
+                "Jubilee Hills": ["Jubilee Hills", "Banjara Hills", "Film Nagar"],
+                "Sanathnagar": ["Sanathnagar", "Ameerpet", "Begumpet"],
+                "Secunderabad": ["Secunderabad", "Tarnaka", "Trimulgherry"],
+                "Musheerabad": ["Musheerabad", "RTC X Roads", "Kavadiguda"],
+                "Karwan": ["Karwan", "Tappachabutra", "Asif Nagar"],
+                "Charminar": ["Charminar", "Shalibanda", "Hussainialam"],
+                "Chandrayangutta": ["Chandrayangutta", "Barkas", "Falaknuma"],
+                "Yakutpura": ["Yakutpura", "Rein Bazaar", "Dabeerpura"],
+                "Bahadurpura": ["Bahadurpura", "Kalapathar", "Shamsheergunj"],
+                "Jagitial": ["Jagitial", "Mallial", "Beerpur"],
+                "Dharmapuri": ["Dharmapuri", "Buggaram", "Gollapalli"],
+                "Korutla": ["Korutla", "Metpally", "Mallapur"],
+                "Jangaon": ["Jangaon", "Lingalaghanpur", "Gundala"],
+                "Bhupalpally": ["Bhupalpally", "Kataram", "Mahadevpur"],
+                "Gadwal": ["Gadwal", "Itikyala", "Undavelly"],
+                "Kamareddy": ["Kamareddy", "Banswada", "Yellareddy"],
+                "Karimnagar": ["Karimnagar", "Veenavanka", "Chigurumamidi"],
+                "Khammam": ["Khammam", "Raghunathapalem", "Chinthakani"],
+                "Mahabubabad": ["Mahabubabad", "Dornakal", "Nellikuduru"],
+                "Mahabubnagar": ["Mahabubnagar", "Jadcherla", "Hanwada"],
+                "Medak": ["Medak", "Ramayampet", "Alladurg"],
+                "Medchal": ["Medchal", "Shamirpet", "Keesara"],
+                "Nagarkurnool": ["Nagarkurnool", "Achampet", "Telkapally"],
+                "Nalgonda": ["Nalgonda", "Kanagal", "Thipparthi"],
+                "Nizamabad": ["Nizamabad", "Dichpally", "Balkonda"],
+                "Peddapalli": ["Peddapalli", "Manthani", "Odela"],
+                "Siddipet": ["Siddipet", "Gajwel", "Dubbak"],
+                "Suryapet": ["Suryapet", "Kodad", "Huzurnagar"],
+                "Vikarabad": ["Vikarabad", "Tandur", "Parigi"],
+                "Wanaparthy": ["Wanaparthy", "Pebbair", "Kothakota"],
+                "Warangal West": ["Warangal West", "Kazipet", "Hanamkonda"],
+                "Warangal East": ["Warangal East", "Parkal", "Bhupalpally"],
+                "Bhongir": ["Bhongir", "Aler", "Tungaturthi"]
+            };
+
+                // Telangana Villages Data
+                const villagesData = {
+                    "Adilabad": ["Basar", "Jainad", "Talamadugu", "Madapur", "Gollaguda", "Laxmipur"],
+                    "Talamadugu": ["Tamsi", "Mukhra", "Bela", "Tamsi", "Indervelly", "Gunjala"],
+                    "Bela": ["Bela", "Mukhra", "Utnoor", "Neredigonda", "Dharur"],
+                    "Narnoor": ["Narnoor", "Jainad", "Basar", "Indervelly", "Nizampur"],
+                    
+                    "Boath": ["Boath", "Neradigonda", "Gadiguda", "Bodhan", "Gadhcherla"],
+                    "Nirmal": ["Nirmal", "Sarangapur", "Laxmanchanda", "Khagaznagar", "Kaddam"],
+                    "Mudhole": ["Mudhole", "Bhainsa", "Kubeer", "Jinnaram", "Nagapur"],
+                    
+                    "Bhadrachalam": ["Bhadrachalam", "Yetapaka", "Dummugudem", "Kannepalli", "Chintoor"],
+                    "Manuguru": ["Manuguru", "Aswapuram", "Cherla", "Bhadrachalam", "Sironcha"],
+                    
+                    "Malakpet": ["Mallapur", "Nagole", "Dilsukhnagar", "Santoshnagar", "Malkajgiri"],
+                    "Chanchalguda": ["Azampura", "Noorkhan Bazar", "Santoshnagar", "Bhavani Nagar", "Chikkadpally"],
+                    "Trimulgherry": ["Bolarum", "Alwal", "Neredmet", "Malkajgiri", "Ameerpet"],
+                    "Tarnaka": ["Nacharam", "Habsiguda", "Moula Ali", "Mallapur", "Sainikpuri"],
+                    
+                    "Ibrahimpatnam": ["Manchal", "Yacharam", "Nandigama", "Nagole", "Maheshwaram"],
+                    "Maheshwaram": ["Kandukur", "Balapur", "Tukkuguda", "Shamshabad", "Shadnagar"],
+                    
+                    "Jagitial": ["Jagitial", "Dharmapuri", "Beerpur", "Laxmanchanda", "Jammikunta"],
+                    "Dharmapuri": ["Buggaram", "Gollapalli", "Velgatur", "Kondapur", "Koppur"],
+                    
+                    "Karimnagar": ["Karimnagar", "Chigurumamidi", "Veenavanka", "Huzurabad", "Thimmapur"],
+                    "Siddipet": ["Siddipet", "Gajwel", "Dubbak", "Sarpangadda", "Shamirpet"],
+                    
+                    "Kamareddy": ["Kamareddy", "Banswada", "Yellareddy", "Bodhan", "Sadasivpet"],
+                    "Nizamabad": ["Nizamabad", "Dichpally", "Balkonda", "Navipet", "Samsabad"],
+                    
+                    "Medak": ["Medak", "Ramayampet", "Alladurg", "Malkapur", "Shankarampet"],
+                    "Vikarabad": ["Vikarabad", "Tandur", "Parigi", "Peddemul", "Sultanpur"],
+                    
+                    "Wanaparthy": ["Wanaparthy", "Pebbair", "Kothakota", "Adivi", "Chilkur"],
+                    "Mahabubnagar": ["Mahabubnagar", "Jadcherla", "Hanwada", "Nagarkurnool", "Peddakothapally"],
+                    
+                    "Warangal": ["Hanamkonda", "Kazipet", "Parkal", "Nekonda", "Khila Warangal"],
+                    "Bhongir": ["Bhongir", "Aler", "Tungaturthi", "Malkapur", "Tondapalli"],
+                    
+                    "Khammam": ["Khammam", "Raghunathapalem", "Chinthakani", "Mudigonda", "Sathupalli"],
+                    "Nalgonda": ["Nalgonda", "Kanagal", "Thipparthi", "Peddapalli", "Choutuppal"],
+                    
+                    "Nagarkurnool": ["Nagarkurnool", "Achampet", "Telkapally", "Shadnagar", "Gudur"],
+                    "Suryapet": ["Suryapet", "Kodad", "Huzurnagar", "Chilkur", "Miryalaguda"],
+                    
+                    "Peddapalli": ["Peddapalli", "Manthani", "Odela", "Kumram Bheem", "Kamanpur"],
+                    "Jangaon": ["Jangaon", "Lingalaghanpur", "Gundala", "Zaffarabad", "Rajanna Sircilla"]
+                };
+
+
+                function populateDistricts() {
+                    let districtSelect = document.getElementById("district");
+                    districtSelect.innerHTML = '<option value="">-- Select District --</option>';
+                    for (let district in districtsData) {
+                        districtSelect.innerHTML += `<option value="${district}">${district}</option>`;
+                    }
+                }
+
+                function populateConstituencies() {
+                    let district = document.getElementById("district").value;
+                    let constituencySelect = document.getElementById("constituency");
+                    constituencySelect.innerHTML = '<option value="">-- Select Constituency --</option>';
+                    if (districtsData[district]) {
+                        districtsData[district].forEach(c => {
+                            constituencySelect.innerHTML += `<option value="${c}">${c}</option>`;
+                        });
+                    }
+                }
+
+                function populateVillages() {
+                    let mandal = document.getElementById("mandal").value;
+                    let villageSelect = document.getElementById("village");
+                    villageSelect.innerHTML = '<option value="">-- Select Village --</option>';
+                    if (villagesData[mandal]) {
+                        villagesData[mandal].forEach(v => {
+                            villageSelect.innerHTML += `<option value="${v}">${v}</option>`;
+                        });
+                    }
+                }
+            </script>
+
+            <!-- Volunteers Overlay Form -->
+            <div id="volunteerOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 9999; overflow-y: auto;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 420px; background: white; padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); max-height: 90vh; overflow-y: auto;">
+                    <h2 style="margin-top: 0; color: #00264d; font-size: 24px;">Volunteer Registration</h2>
+                    <p style="margin-bottom: 20px; color: #555; font-size: 14px;">Register as a volunteer and support the cause.</p>
+            
+                    <input type="text" placeholder="Full Name" style="width: 92%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    <input type="text" placeholder="Address" style="width: 92%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    <input type="text" placeholder="Zip Code" style="width: 92%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+            
+                    <select style="width: 97%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                        <option value="">Select Study Level</option>
+                        <option value="NA">NA</option>
+                        <option value="10th">10th</option>
+                        <option value="Inter/Diploma">Inter/Diploma</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="Post Graduation">Post Graduation</option>
+                    </select>
+            
+                    <select style="width: 97%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                        <option value="">Select Profession</option>
+                        <option value="Business">Business</option>
+                        <option value="Private Employee">Private Employee</option>
+                        <option value="Government Employee">Government Employee</option>
+                        <option value="Farmer">Farmer</option>
+                    </select>
+            
+                    <input type="text" placeholder="Boot Level Committee" style="width: 92%; padding: 12px; margin-top: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    <input type="text" placeholder="Referral ID" style="width: 92%; padding: 12px; margin-top: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    
+                    <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px;">
+                        <input type="text" id="mobileNumber" placeholder="Mobile Number" maxlength="10" style="width: 60%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                        <button onclick="sendOTP()" style="width: 35%; padding: 12px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;">Send OTP</button>
+                    </div>
+            
+                    <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 12px;">
+                        <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6" disabled style="width: 60%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                        <button onclick="verifyOTP()" id="verifyOTPBtn" disabled style="width: 35%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;">Verify OTP</button>
+                    </div>
+            
+                    <input type="email" placeholder="Email" style="width: 92%; padding: 12px; margin-top: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+                    
+                    <button style="width: 97%; padding: 12px; background: #00264d; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; margin-top: 12px; transition: 0.3s;" onmouseover="this.style.background='#001a33'" onmouseout="this.style.background='#00264d'">Submit</button>
+                    <button onclick="closeVolunteerForm()" style="width: 97%; margin-top: 12px; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;" onmouseover="this.style.background='#c9302c'" onmouseout="this.style.background='#dc3545'">Close</button>
+                </div>
+            </div>
+            
+            
+            <!-- JavaScript for OTP Validation -->
+            <script>
+                function sendOTP() {
+                    let mobile = document.getElementById("mobileNumber").value;
+                    if (mobile.length === 10 && !isNaN(mobile)) {
+                        alert("OTP Sent to " + mobile);
+                        document.getElementById("otpInput").disabled = false;
+                        document.getElementById("verifyOTPBtn").disabled = false;
+                    } else {
+                        alert("Enter a valid 10-digit mobile number.");
+                    }
+                }
+
+                function verifyOTP() {
+                    let otp = document.getElementById("otpInput").value;
+                    if (otp.length === 6 && !isNaN(otp)) {
+                        alert("OTP Verified Successfully!");
+                    } else {
+                        alert("Invalid OTP. Try Again.");
+                    }
+                }
+
+                function closeVolunteerForm() {
+                    document.getElementById("volunteerOverlay").style.display = "none";
+                }
+            </script>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+  <!-- Main Content -->
+  <div style="width: 60%; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #004080; text-align: center;">Conferences</h2>
+
+    <!-- Conference 1 -->
+    <div style="margin-bottom: 30px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <img src="https://img.etimg.com/thumb/msid-116868769,width-300,height-225,imgsize-46152,resizemode-75/andhra-cm-chandrababu-naidu-hails-isros-pslv-c60-mission-as-milestone-in-space-exploration.jpg" alt="TDP National Convention" style="width: 100%; height: 396px; border-radius: 10px;">
+      <h3 style="margin-top: 15px; color: #004080;">TDP National Convention 2025</h3>
+      <p style="color: #555; line-height: 1.6;">
+        The Telugu Desam Party (TDP) held its National Convention in Vijayawada on October 15, 2025. The event was attended by thousands of party workers, leaders, and supporters from across the state. The convention focused on the party's vision for the upcoming elections, with a strong emphasis on development, welfare, and good governance. Party President N. Chandrababu Naidu addressed the gathering, outlining the party's roadmap for the future.
+        <br><br>
+        During the convention, several key resolutions were passed, including plans for agricultural reforms, industrial growth, and social welfare schemes. The event also featured cultural programs and speeches by prominent leaders, highlighting the party's commitment to inclusive development. The convention concluded with a pledge to work tirelessly for the betterment of the state and its people.
+      </p>
+    </div>
+
+    <!-- Conference 2 -->
+    <div style="margin-bottom: 30px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <img src="https://images.indianexpress.com/2018/03/chandrababu-naidu1.jpg?w=414" alt="Youth Conclave" style="width: 100%; height: 396px; border-radius: 10px;">
+      <h3 style="margin-top: 15px; color: #004080;">Youth Conclave 2025</h3>
+      <p style="color: #555; line-height: 1.6;">
+        The TDP Youth Wing organized a Youth Conclave in Visakhapatnam on September 20, 2025. The event aimed to empower young leaders and discuss strategies for youth engagement in politics. Nara Lokesh, the party's General Secretary, addressed the gathering and highlighted the importance of youth participation in nation-building.
+        <br><br>
+        The conclave featured panel discussions on topics such as education, employment, and entrepreneurship. Young leaders from across the state shared their ideas and experiences, inspiring others to take an active role in shaping the future. The event also included workshops on leadership skills, public speaking, and community service. The conclave concluded with a call to action, urging the youth to contribute to the party's mission of progress and prosperity.
+      </p>
+    </div>
+
+    <!-- Conference 3 -->
+    <div style="margin-bottom: 30px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <img src="https://assets.thehansindia.com/h-upload/2024/03/10/1428980-tdp.webp" alt="Women Empowerment Summit" style="width: 100%; height: 396px; border-radius: 10px;">
+      <h3 style="margin-top: 15px; color: #004080;">Women Empowerment Summit 2025</h3>
+      <p style="color: #555; line-height: 1.6;">
+        The TDP Women's Wing hosted a Women Empowerment Summit in Guntur on August 25, 2025. The summit focused on empowering women through education, employment, and leadership opportunities. Keynote speakers included prominent women leaders from the party and civil society.
+        <br><br>
+        The summit addressed critical issues such as gender equality, women's safety, and economic independence. Several initiatives were announced, including skill development programs, financial literacy workshops, and support for women entrepreneurs. The event also celebrated the achievements of women in various fields, inspiring others to break barriers and achieve their goals. The summit concluded with a commitment to creating a more inclusive and equitable society.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+    <footer style="max-width: 100%; margin: 50px auto; background-color: #000; padding: 40px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; display: flex; flex-direction: column; color: #fff; font-family: Arial, sans-serif;">
+
+        <!-- Header Section -->
+        <div style="display: flex; align-items: center; margin-bottom: 30px;">
+            <div style="width: 50px; height: 50px; background-color: #004080; border-radius: 50%; margin-right: 20px; 
+            display: flex; align-items: center; justify-content: center; 
+            color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;">ABP
+        </div>
+            <div style="font-size: 1.2em; font-weight: bold;">ABHYDAYAM PARTY</div>
+        </div>
+
+        <div style="display: flex; gap: 50px; flex-wrap: wrap; justify-content: space-between;">
+            <!-- Form Section -->
+            <div style="max-width: 30%; display: flex; flex-direction: column; gap: 20px; flex: 1;">
+                <h2 style="margin: 0;">Join Us</h2>
+                <input type="email" placeholder="Email address" required 
+                    style="padding: 10px; border: 1px solid #fff; border-radius: 4px; background: transparent; color: #fff;">
+                <input type="text" placeholder="Zip" required 
+                    style="padding: 10px; border: 1px solid #fff; border-radius: 4px; background: transparent; color: #fff;">
+                <input type="tel" placeholder="Mobile phone" 
+                    style="padding: 10px; border: 1px solid #fff; border-radius: 4px; background: transparent; color: #fff;">
+                <input type="submit" value="SUBMIT" 
+                    style="padding: 10px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background-color 0.3s;"
+                    onmouseover="this.style.backgroundColor='#c9302c'" 
+                    onmouseout="this.style.backgroundColor='#dc3545'">
+            </div>
+
+            <!-- Links Section -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px; background-color: #000; border-radius: 8px; text-align: left;">
+
+                <!-- Column 1 -->
+                <div>
+                    <h3 style="color: #0056b3; font-size: 18px; margin-bottom: 10px;">About Us</h3>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Who we are</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">What we do</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Who we serve</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">About the ABHYDAYAM Party</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Leadership</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">State Parties</a>
+                </div>
+            
+                <!-- Column 2 -->
+                <div>
+                    <h3 style="color: #0056b3; font-size: 18px; margin-bottom: 10px;">Where We Stand</h3>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Party platform</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">The issues</a>
+                </div>
+            
+                <!-- Column 3 -->
+                <div>
+                    <h3 style="color: #0056b3; font-size: 18px; margin-bottom: 10px;">Get Involved</h3>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Take action</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Events</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Trainings</a>
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Work with us</a>
+                </div>
+            
+                <!-- Column 4 -->
+                <div>
+                    <h3 style="color: #0056b3; font-size: 18px; margin-bottom: 10px;">Support Us</h3>
+                    <!-- <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Shop</a> -->
+                    <a href="#" style="display: block; color: #0056b3; text-decoration: none; font-size: 16px; padding: 5px 0;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Donations</a>
+                </div>
+            
+            </div>
+            
+            
+        </div>
+
+        <div style="margin-top: 40px; display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <!-- Left-aligned Signup Text -->
+            <div style="max-width: 40%; font-size: 14px; line-height: 1.6;">
+                <p><strong>Sign up to get texts.</strong> By entering your phone number, you are consenting to receive recurring automated text messages & calls from the ABHYDAYAM with news & info about our work. For SMS, message & data rates may apply. Text STOP to end. Text HELP for help. <a href="#" style="color: #fff; text-decoration: underline;">Privacy policy</a> & <a href="#" style="color: #fff; text-decoration: underline;">ToS</a>.</p>
+            </div>
+
+            <!-- Right-aligned Footer Content -->
+            <div style="max-width: 55%; text-align: left;">
+                <nav style="margin-bottom: 10px;">
+                    <ul style="list-style: none; padding: 0; display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
+                        <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Contact us</a></li>
+                        <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Press releases</a></li>
+                        <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Privacy policy</a></li>
+                        <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Terms of service</a></li>
+                        <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Submission Terms</a></li>
+                    </ul>
+                </nav>
+
+                <p style="font-size: 14px;">Copyright © 2025 ABHYDAYAM Services Corporation. All rights reserved.</p>
+                <p style="font-size: 14px;">Paid for by the ABHYDAYAM 9876543210</p>
+                <p style="font-size: 14px;">This communication is not authorized by any candidate or candidate's committee.</p>
+                <p style="font-size: 14px;">ABHYDAYAM<br>
+                    Hyderabd , Telangana India<br>
+                    Hyderabad, IN 500039</p>
+                <p style="margin-top: 10px; font-weight: bold; font-size: 14px;">
+                </p>
+            </div>
+        </div>
+
+        
+
+    </footer>
+
+</body>
+</html>
