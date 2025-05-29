@@ -505,46 +505,64 @@
 
 
 
-    <!-- Hero Contact Section -->
-    <section style="padding: 0.8rem 1rem; background: #f1f1f1;">
-      <div style="display: flex; flex-wrap: wrap; max-width: 1000px; margin: auto; gap: 1rem; align-items: flex-start; justify-content: center;">
 
-        <!-- Left Side - Contact Info Text (taller) -->
-        <div style="flex: 1 1 450px; min-width: 280px; color: #1a2a6c; font-family: Arial, sans-serif; line-height: 1.6; padding-right: 1rem;">
-          <h3 style="font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid #1a2a6c; padding-bottom: 0.3rem;">Contact Info</h3>
-          <p style="font-size: 1rem; margin: 0.6rem 0;"><strong>Address:</strong> 123 Democracy Ave, Capital City</p>
-          <p style="font-size: 1rem; margin: 0.6rem 0;"><strong>Phone:</strong> (555) 123-4567</p>
-          <p style="font-size: 1rem; margin: 0.6rem 0;"><strong>Email:</strong> info@politicalconnect.org</p>
-          <p style="font-size: 1rem; margin: 0.6rem 0;"><strong>Hours:</strong> Mon–Fri, 9am–5pm</p>
-          <p style="margin-top: 2rem; font-size: 1rem; line-height: 1.8; color: #333;">
-            Use the form to the right to quickly send a message to your representative.<br>
-            We are committed to helping you connect with your elected officials efficiently.
-          </p>
+    <!-- Contact Section -->
+    <section style="height: 80vh; padding: 1.5rem 1rem; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);">
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1200px; margin: auto; align-items: stretch;">
+
+        <!-- Left Side - Contact Info -->
+        <div style="height: 100%; background: #fff; color: #1a2a6c; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(26, 42, 108, 0.08);">
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; border-bottom: 2px solid #1a2a6c; padding-bottom: 0.4rem; font-weight: 600;">Contact Information</h3>
+          <p style="font-size: 1rem; margin: 0.8rem 0;"><strong style="display: inline-block; width: 100px;">Address:</strong> 123 Democracy Ave, Capital City</p>
+          <p style="font-size: 1rem; margin: 0.8rem 0;"><strong style="display: inline-block; width: 100px;">Phone:</strong> (555) 123-4567</p>
+          <p style="font-size: 1rem; margin: 0.8rem 0;"><strong style="display: inline-block; width: 100px;">Email:</strong> info@politicalconnect.org</p>
+          <p style="font-size: 1rem; margin: 0.8rem 0;"><strong style="display: inline-block; width: 100px;">Hours:</strong> Mon–Fri, 9am–5pm</p>
+          
+          <div style="margin-top: 1.5rem; padding: 1rem; background-color: #f8f9ff; border-radius: 8px; border-left: 4px solid #1a2a6c;">
+            <p style="font-size: 1rem; line-height: 1.6; color: #333; margin: 0;">
+              Use the form to send a direct message to your representative.<br><br>
+              We're committed to facilitating effective communication between constituents and their elected officials.
+            </p>
+          </div>
+
+          <!-- Google Map Embed for Hyderabad -->
+          <div style="margin-top: 1.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7618.190080839002!2d78.4482885!3d17.3850447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97312c2f8d6b%3A0x5ec2b8d1f8bb28c2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1684740570000!5m2!1sen!2sin"
+              width="100%"
+              height="250"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
         </div>
 
-        <!-- Right Side - Contact Form (narrower) -->
-        <div style="flex: 0 1 300px;margin-right: 50px; background: #fff; padding: 0.7rem 1rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(26, 42, 108, 0.15); min-width: 280px; font-family: Arial, sans-serif;">
-          <h2 style="font-size: 1.15rem; margin-bottom: 0.8rem; color: #1a2a6c; text-align: center;">Contact Your Representative</h2>
-          <form>
-            <div style="margin-bottom: 0.4rem;">
-              <label style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem;">Full Name</label>
-              <input type="text" required style="width: 100%; padding: 0.35rem; font-size: 0.85rem; border: 1.5px solid #ccc; border-radius: 6px; transition: border-color 0.3s;" 
-                onfocus="this.style.borderColor='#1a2a6c'" onblur="this.style.borderColor='#ccc'">
+
+        <!-- Right Side - Contact Form -->
+        <div style="height: 100%; background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(26, 42, 108, 0.1); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          <h2 style="font-size: 1.3rem; margin-bottom: 1rem; color: #1a2a6c; text-align: center; font-weight: 600;">Contact Your Representative</h2>
+          <form style="display: grid; gap: 0.75rem;">
+            <div>
+              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">Full Name</label>
+              <input type="text" required style="width: 100%; padding: 0.5rem; font-size: 0.95rem; border: 1.5px solid #e0e0e0; border-radius: 6px;">
             </div>
-            <div style="margin-bottom: 0.4rem;">
-              <label style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem;">Email Address</label>
-              <input type="email" required style="width: 100%; padding: 0.35rem; font-size: 0.85rem; border: 1.5px solid #ccc; border-radius: 6px; transition: border-color 0.3s;"
-                onfocus="this.style.borderColor='#1a2a6c'" onblur="this.style.borderColor='#ccc'">
+            <div>
+              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">Mobile Number</label>
+              <input type="text" required style="width: 100%; padding: 0.5rem; font-size: 0.95rem; border: 1.5px solid #e0e0e0; border-radius: 6px;">
             </div>
-            <div style="margin-bottom: 0.4rem;">
-              <label style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem;">Zip Code</label>
-              <input type="text" required style="width: 100%; padding: 0.35rem; font-size: 0.85rem; border: 1.5px solid #ccc; border-radius: 6px; transition: border-color 0.3s;"
-                onfocus="this.style.borderColor='#1a2a6c'" onblur="this.style.borderColor='#ccc'">
+            <div>
+              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">Email Address</label>
+              <input type="email" required style="width: 100%; padding: 0.5rem; font-size: 0.95rem; border: 1.5px solid #e0e0e0; border-radius: 6px;">
             </div>
-            <div style="margin-bottom: 0.6rem;">
-              <label style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem;">Representative Type</label>
-              <select required style="width: 100%; padding: 0.35rem; font-size: 0.85rem; border: 1.5px solid #ccc; border-radius: 6px; transition: border-color 0.3s;"
-                onfocus="this.style.borderColor='#1a2a6c'" onblur="this.style.borderColor='#ccc'">
+            <div>
+              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">Zip Code</label>
+              <input type="text" required style="width: 100%; padding: 0.5rem; font-size: 0.95rem; border: 1.5px solid #e0e0e0; border-radius: 6px;">
+            </div>
+            <div>
+              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">Representative Type</label>
+              <select required style="width: 100%; padding: 0.5rem; font-size: 0.95rem; border: 1.5px solid #e0e0e0; border-radius: 6px;">
                 <option value="">Select an option</option>
                 <option value="federal">Federal (Congress/Senate)</option>
                 <option value="state">State Legislator</option>
@@ -552,14 +570,11 @@
                 <option value="other">Other</option>
               </select>
             </div>
-            <div style="margin-bottom: 0.8rem;">
-              <label style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem;">Your Message</label>
-              <textarea required style="width: 100%; height: 50px; padding: 0.35rem; font-size: 0.85rem; border: 1.5px solid #ccc; border-radius: 6px; resize: vertical; transition: border-color 0.3s;"
-                onfocus="this.style.borderColor='#1a2a6c'" onblur="this.style.borderColor='#ccc'"></textarea>
+            <div>
+              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">Your Message</label>
+              <textarea required style="width: 100%; height: 70px; padding: 0.5rem; font-size: 0.95rem; border: 1.5px solid #e0e0e0; border-radius: 6px;"></textarea>
             </div>
-            <button type="submit" style="width: 100%; background-color: #1a2a6c; color: white; padding: 0.5rem; font-size: 0.9rem; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: background-color 0.3s;">
-              Send Message
-            </button>
+            <button type="submit" style="width: 100%; background-color: #1a2a6c; color: white; padding: 0.5rem; font-size: 1rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;">Send Message</button>
           </form>
         </div>
 
@@ -654,6 +669,8 @@
         </div>
       </div>
     </section>
+
+
 
 
     <!-- Footer -->
